@@ -487,5 +487,6 @@ var a = function()
 //}
 
 //本轮结束
-
+dm.timeBlock = 4;  //play
+_('main').innerHTML = '<br>发球' + _('main').innerHTML;  //play debug
 dm.targetOrient = 0;
