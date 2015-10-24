@@ -177,12 +177,12 @@ var continueMovie = function(role)
         var roleBox1 = document.querySelector(".role-a");
         [].slice.call(roleBox1.querySelectorAll("img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "Glawind"));
+            item.setAttribute("src", attr.replace("spider", "zyt"));
         });
 
         [].slice.call(document.querySelectorAll(".boxPlayerA img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "Glawind"));
+            item.setAttribute("src", attr.replace("spider", "zyt"));
         });
 
         // 修改文字信息
@@ -258,6 +258,17 @@ var dongganGame = function()
 //    document.querySelector("#beforeGame").remove();
     var s = document.createElement('script');
     s.src = 'script/screen_dg.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+//    document.innerHTML += '<script type="text/javascript" src=></script>';
+}
+
+var maibaGame = function()
+{
+    document.querySelector("#beforeGame").style.cssText = "-webkit-transition: all 1s; left: -9999px;";
+    wa.play();
+//    document.querySelector("#beforeGame").remove();
+    var s = document.createElement('script');
+    s.src = 'script/screen_mb.js';
     document.getElementsByTagName('head')[0].appendChild(s);
 //    document.innerHTML += '<script type="text/javascript" src=></script>';
 }
