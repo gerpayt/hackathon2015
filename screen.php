@@ -177,8 +177,10 @@
 		</div>
 		<div class="welcome-text">大家好，我是B~</div>
 	</div>
+    <canvas id="canvas2" width="500" height="300" style="width:250px; height:150px;"></canvas>
     <canvas id="canvas0" width="500" height="300" style="width:250px; height:150px;"></canvas>
     <canvas id="canvas1" width="500" height="300" style="width:250px; height:150px;"></canvas>
+    <canvas id="canvas3" width="500" height="300" style="width:250px; height:150px;"></canvas>
 
 </div>
 

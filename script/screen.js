@@ -5,9 +5,13 @@ log[1] = document.getElementById("log1");
 var canvas = [];
 canvas[0] = document.getElementById("canvas0");
 canvas[1] = document.getElementById("canvas1");
+canvas[2] = document.getElementById("canvas2");
+canvas[3] = document.getElementById("canvas3");
 var ctx = [];
 ctx[0] = canvas[0].getContext("2d");
 ctx[1] = canvas[1].getContext("2d");
+ctx[2] = canvas[2].getContext("2d");
+ctx[3] = canvas[3].getContext("2d");
 var posState=[];
 posState[0]=[-1, -1];
 posState[1]=[-1, -1];
@@ -21,6 +25,10 @@ ctx[0].translate(0, 300);
 ctx[0].scale(1, -1);
 ctx[1].translate(0, 300);
 ctx[1].scale(1, -1);
+ctx[2].translate(0, 300);
+ctx[2].scale(1, -1);
+ctx[3].translate(0, 300);
+ctx[3].scale(1, -1);
 
 
 function makeCode()
@@ -65,9 +73,19 @@ function makeCode()
 var code = [];
 code[0] = makeCode();
 code[1] = makeCode();
+code[2] = makeCode();
+code[3] = makeCode();
 while (code[0] == code[1])
 {
     code[1] = makeCode();
+}
+while (code[1] == code[2])
+{
+    code[2] = makeCode();
+}
+while (code[2] == code[3])
+{
+    code[3] = makeCode();
 }
 
 var numPos = [];
@@ -143,6 +161,8 @@ if (deviceId == 1) {
 
     cv_init(0);
     cv_init(1);
+    cv_init(2);
+    cv_init(3);
 }
 
 
@@ -740,7 +760,7 @@ var continueMovie = function()
     var roleBox2 = roleBox.cloneNode(true);
     [].slice.call(roleBox2.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("a", "Glawind"));
+        item.setAttribute("src", attr.replace("spider", "a"));
     });
     // 修改文字信息
     var text = roleBox2.querySelector(".welcome-text");
