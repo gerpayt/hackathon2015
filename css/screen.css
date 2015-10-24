@@ -419,6 +419,8 @@ body { -webkit-user-select: none; background: #333;}
 #box {height: 1200px; width: 600px; top:-600px; margin:0 auto;position: relative; -webkit-perspective: 800px;}
 #outer {position: absolute; border:1px solid green; height: 100%; width: 100%;-webkit-transform: rotateX(90deg)translateZ(-300px);}
 #net {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px);}
+#net_mb1 {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px); display: none;}
+#net_mb2 {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px); display: none;}
 
 .ad1 {position: absolute; top:600px; left: 2px; height: 45px; width: 600px; background:url('../image/ad.png') no-repeat; -webkit-transform: translateZ(-595px)translateY(255px)rotateX(15deg);}
 .ad2 {position: absolute; top:600px; left: 2px; height: 45px; width: 1200px; background:url('../image/ad.png') repeat-x; -webkit-transform: translateY(256px)translateX(-600px)rotateY(90deg)rotateX(15deg);}

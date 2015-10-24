@@ -118,6 +118,8 @@ var beginMapPos = function()  //mapPos至发球点 mapPlayer将至发球点
 var ball = _('ball');
 var outer = _('outer');
 var net = _('net');
+var net_mb1 = _('net_mb1');
+var net_mb2 = _('net_mb2');
 var shadow = _('shadow');
 var pos = _('pos');
 var player = _('player');
@@ -221,6 +223,8 @@ var setPos = function(x, y, z)
     pos.style.webkitTransform="translateY(" + tY + "px) translateZ(" + tZ + "px)translateX(" + tX + "px) rotateX(90deg)";
 }
 
+var lastBally = -1;
+
 var moveBall = function()
 {
     fallTime += 1;
@@ -279,47 +283,106 @@ var moveBall = function()
         hit();
     }
 
-    console.log(fallPosy);
-
-    // // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
-    if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 1)
+    if (deviceId == 1) //只有PC一才判断死亡
     {
-        //玩家一视角下 有人死了
-        if (!nowRound)
+        if (!nowRound && bally < 300 && lastBally > 300) // 玩家二触网
         {
-            //玩家一死了
-            playerBScore++;
-            showScore(2);
-        }
-        else
-        {
-            //玩家二死了
-            playerAScore++;
-            showScore(1);
-        }
+            is_del = false;
+            // is_del = checkDie();
+            if (is_del) // 玩家二死了
+            {
+                playerAScore++;
+                showScore(1);
 
-        //玩家发球
-        ws.end(1);  //websocket
-        beginMapPos();  //map
-        readyToBegin();
+                // //球被拦下
+                // showBallStop();
+
+                //玩家发球
+                ws.end(1);  //websocket
+                beginMapPos();  //map
+                readyToBegin();
+            }
+            else
+            {
+                //网被替换
+                resetNetHeight(2);
+            }
+        }
+        else if (nowRound && bally > 300 && lastBally < 300) // 玩家一触网
+        {
+            is_del = false;
+            // is_del = checkDie();
+            if (is_del) // 玩家二死了
+            {
+                playerAScore++;
+                showScore(1);
+
+                // //球被拦下
+                // showBallStop();
+
+                //玩家发球
+                ws.end(1);  //websocket
+                beginMapPos();  //map
+                readyToBegin();
+            }
+            else
+            {
+                //网被替换
+                resetNetHeight(1);
+            }
+        }
+        lastBally = bally;
     }
-    else if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 2)
+
+    // debug
+    if (Math.random() > 0.85)
     {
-        //玩家二视角下 有人死了
-        resetMapPos();  //??
-        if (nowRound)
-        {
-            //玩家一死了
-            playerBScore++;
-            showScore(2);
-        }
-        else
-        {
-            //玩家二死了
-            playerAScore++;
-            showScore(1);
-        }
+        addNetHeight(1, 1);
     }
+    if (Math.random() > 0.85)
+    {
+        addNetHeight(2, 1);
+    }
+
+    // // // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
+    // if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 1)
+    // {
+    //     //玩家一视角下 有人死了
+    //     if (!nowRound)
+    //     {
+    //         //玩家一死了
+    //         playerBScore++;
+    //         showScore(2);
+    //     }
+    //     else
+    //     {
+    //         //玩家二死了
+    //         playerAScore++;
+    //         showScore(1);
+    //     }
+
+    //     //玩家发球
+    //     ws.end(1);  //websocket
+    //     beginMapPos();  //map
+    //     readyToBegin();
+    // }
+    // else if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 2)
+    // {
+    //     //玩家二视角下 有人死了
+    //     resetMapPos();  //??
+    //     if (nowRound)
+    //     {
+    //         //玩家一死了
+    //         playerBScore++;
+    //         showScore(2);
+    //     }
+    //     else
+    //     {
+    //         //玩家二死了
+    //         playerAScore++;
+    //         showScore(1);
+    //     }
+    // }
     // else if (fallTime < 2000)
     // {
     //     clearTimeout(handleMoveBall);
@@ -356,6 +419,9 @@ var readyToBegin = function()  //准备发球
 
     setBall(ballx, bally, ballz);
     moveCamera(ballx / 3, ballz / 20);
+
+    resetNetHeight(1);
+    resetNetHeight(2);
 }
 var throwBall = function(t)  //抛起球
 {
@@ -518,7 +584,8 @@ var resetHitShow = function()  //恢复击打状态
 var moveCamera = function(x, z)
 {
     outer.style.webkitTransform = "rotateX(90deg) translateZ(" + (z*-1-300) + "px) translateX(" + (x*-1) + "px)";
-    net.style.webkitTransform = "translateY(" + (z+300) + "px) translateX(" + (x*-1) + "px)";
+    net_mb1.style.webkitTransform = "translateY(" + (z+300) + "px) translateX(" + (x*-1) + "px)";
+    net_mb2.style.webkitTransform = "translateY(" + (z+300) + "px) translateX(" + (x*-1) + "px)";
     ad1.style.webkitTransform = "translateZ(-595px)translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateX(15deg)";
     ad2.style.webkitTransform = "translateY(" + (z+256) + "px)translateX(" + (x*-1-600) + "px)rotateY(90deg)rotateX(15deg)";
     ad3.style.webkitTransform = "translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateY(-90deg)rotateX(15deg)";
@@ -529,14 +596,53 @@ var moveCamera = function(x, z)
 //     net.style.webkitTransform = "translateY(300px) translateZ(" + (i*15) + "px) rotateX(-" + (i*4.5) + "deg) rotateZ(-" + (i*4.5) + "deg)  translateX(" + (i*-25) + "px)";
 // }
 
-var nowNetHeight = 0;
-var changeNetHeight = function(y) //0-100
+
+net.style.display = 'none';
+net_mb1.style.display = 'block';
+
+var nowNet1Height = 0; //0-100
+var nowNet2Height = 0; //0-100
+var addNetHeight = function(player, addy)
 {
-    if (y < 0) y = 0;
-    if (y > 100) y = 100;
-    net.style.height = (54 - 50 + y) + "px";
-    net.style.top = (548 + 50 - y) + "px";
-    nowNetHeight = y;
+    if (player == 1) //玩家一被升高网
+    {
+        y = nowNet1Height + addy;
+        if (y < 0) y = 0;
+        if (y > 100) y = 100;
+        net_mb1.style.height = (54 - 50 + y) + "px";
+        net_mb1.style.top = (548 + 50 - y) + "px";
+        nowNet1Height = y;
+    }
+    else //玩家二被升高网
+    {
+        y = nowNet2Height + addy;
+        if (y < 0) y = 0;
+        if (y > 100) y = 100;
+        net_mb2.style.height = (54 - 50 + y) + "px";
+        net_mb2.style.top = (548 + 50 - y) + "px";
+        nowNet2Height = y;
+    }
+}
+var resetNetHeight = function(player)
+{
+    if (player == 1) //玩家一被恢复网
+    {
+        y = 0;
+        net_mb1.style.height = (54 - 50 + y) + "px";
+        net_mb1.style.top = (548 + 50 - y) + "px";
+        nowNet1Height = y;
+        net_mb1.style.display = 'none';
+        net_mb2.style.display = 'block';
+    }
+    else //玩家二被恢复网
+    {
+        y = 0;
+        net_mb2.style.height = (54 - 50 + y) + "px";
+        net_mb2.style.top = (548 + 50 - y) + "px";
+        nowNet2Height = y;
+        net_mb2.style.display = 'none';
+        net_mb1.style.display = 'block';
+    }
 }
 
 

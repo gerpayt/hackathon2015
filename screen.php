@@ -16,6 +16,8 @@
 	    <div id="pos" class="pos"></div>
 	    <div id="player" class="player"></div>
 	    <img id="net" src="image/net.jpg" />
+	    <img id="net_mb1" src="image/net_mb1.jpg" />
+	    <img id="net_mb2" src="image/net_mb2.jpg" />
 	    <div id="ad" class="ad">
 			<div id="ad1" class="ad1"></div>
 			<div id="ad2" class="ad2"></div>
