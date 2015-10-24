@@ -158,8 +158,8 @@ var ws = new ScreenPlayWS(_('log'), deviceId);
 var wa = new WAudio('sound/music.mp3', 0.5);
 var sounds = [];
 for (var i = 1; i <= 12; i++)
-{nd/' + i + '.m
-    sounds.push(new WAudio('soup3', 1));
+{
+    sounds.push(new WAudio('sound/' + i + '.mp3', 1));
 }
 var makeSound = function()
 {
@@ -177,7 +177,7 @@ var rx = 0;  //mapPlayer的当前理论坐标
 var ry = 0;  //mapPlayer的当前理论坐标
 var px = 0;  //mapPos的当前理论坐标
 var py = 0;  //mapPos的当前理论坐标
-var perMove = 30;  //每步长
+var perMove = 20;  //每步长
 
 var goMapPos = function(x, y)  //mapPlayer到达理论坐标
 {
@@ -248,7 +248,7 @@ var resetMapPos = function()  //mapPos回至原点 mapPlayer将回位
     py = 0;
     mapPos.style.display = "none";
     mapPlayer.style.background = "red";
-    setTimeout(moveToMapPos, 300);
+    setTimeout(moveToMapPos, 600);
 }
 var newMapPos = function(x, y)
 {
@@ -305,7 +305,7 @@ var startPosy = 0;  //球出发点y坐标
 var startPosz = 0;  //球出发点z坐标
 var ballvx = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
 var ballvy = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
-var ballv = 3;  //常数 控制球速
+var ballv = 5;  //常数 控制球速
 var jumpTimes = 0;  //反弹次数
 var fallTime = 0;  //一回合运动时间
 var nowRound = 1; //1为球向对方移动 0为球向己方移动
