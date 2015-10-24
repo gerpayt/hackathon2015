@@ -178,8 +178,8 @@ var ws = new ScreenPlayWS(_('log'), deviceId);
 var wa = new WAudio('sound/music.mp3', 0.5);
 var sounds = [];
 for (var i = 1; i <= 12; i++)
-{nd/' + i + '.m
-    sounds.push(new WAudio('soup3', 1));
+{
+    sounds.push(new WAudio('sound/' + i + '.mp3', 1));
 }
 var makeSound = function()
 {
@@ -450,10 +450,24 @@ var moveBall = function()
         }
         else if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 0.9) && !nowRound)
         {
-            // 模拟击打
+            // 模拟移动
             moveToMapPos();
         }
     }
+
+    // 麦霸模式不会死
+    tempV = Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2));
+    if ((fallTime*ballv > tempV * 1.8) && !nowRound)
+    {
+        // 模拟击打
+        hit();
+    }
+    else if ((fallTime*ballv > tempV * 1.1) && fallPosy < 120 && !nowRound)
+    {
+        // 模拟击打
+        hit();
+    }
+
     // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
     if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 1)
     {
@@ -493,7 +507,7 @@ var moveBall = function()
             showScore(1);
         }
     }
-    else if (fallTime < 500)
+    else if (fallTime < 2000)
     {
         clearTimeout(handleMoveBall);
         handleMoveBall = setTimeout(moveBall, 20);
@@ -686,6 +700,19 @@ var moveCamera = function(x, z)
 {
     outer.style.webkitTransform = "rotateX(90deg) translateZ(" + (z*-1-300) + "px) translateX(" + (x*-1) + "px)";
     net.style.webkitTransform = "translateY(" + (z+300) + "px) translateX(" + (x*-1) + "px)";
+}
+// var beginCamera = function(i) //0-20
+// {
+//     outer.style.webkitTransform = "rotateX(90deg) translateZ(-300px) translateZ(" + (i*15) + "px) rotateX(-" + (i*4.5) + "deg) rotateZ(-" + (i*4.5) + "deg)  translateX(" + (i*-25) + "px)";
+//     net.style.webkitTransform = "translateY(300px) translateZ(" + (i*15) + "px) rotateX(-" + (i*4.5) + "deg) rotateZ(-" + (i*4.5) + "deg)  translateX(" + (i*-25) + "px)";
+// }
+
+var changeNetHeight = function(y) //0-100
+{
+    if (y < 0) y = 0;
+    if (y > 100) y = 100;
+    net.style.height = (54 - 50 + y) + "px";
+    net.style.top = (548 + 50 - y) + "px";
 }
 
 
