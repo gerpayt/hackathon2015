@@ -372,12 +372,14 @@ HandlePlayWS.prototype.onDongganGame = function() {
     var s = document.createElement('script');
     s.src = 'script/main_dg.js';
     document.getElementsByTagName('head')[0].appendChild(s);
+    _('canvas').remove();
 
 }
 HandlePlayWS.prototype.onMaibaGame = function() {
     var s = document.createElement('script');
     s.src = 'script/main_mb.js';
     document.getElementsByTagName('head')[0].appendChild(s);
+    _('canvas').remove();
 }
 //收到user信号
 HandlePlayWS.prototype.onSocketUser = function(userArr)
