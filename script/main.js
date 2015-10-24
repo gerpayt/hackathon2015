@@ -282,7 +282,7 @@ DMotion.prototype.getOrient = function(lastChange)
 							//有效击打
 							_('main').innerHTML = '<br>击' + parseInt(this.viArr[1]) +' ' + parseInt(this.vjArr[1]) +' ' + parseInt(this.vkArr[1]) + _('main').innerHTML;
 							ws.hit(parseInt(this.viArr[1]), parseInt(this.vjArr[1]));  //websocket
-	  						navigator.vibrate([200]);
+							navigator.vibrate && navigator.vibrate([200]);
 						}
 					}
 				}
@@ -350,7 +350,7 @@ DMotion.prototype.getOrient = function(lastChange)
 						_('main').innerHTML = '<br>扔' + _('main').innerHTML;
 						ws.throwBall();  //websocket
 						this.lastTime4 = (new Date()).getTime();
-						navigator.vibrate([100]);
+						navigator.vibrate && navigator.vibrate([100]);
 					}
 				}
 				else if ((new Date()).getTime() - this.lastTime4 > 1000)  //可击球
@@ -362,7 +362,7 @@ DMotion.prototype.getOrient = function(lastChange)
 						_('main').innerHTML = '<br>发' + _('main').innerHTML;
 						ws.begin(vx, vy);  //websocket
 						this.timeBlock = 1;
-						navigator.vibrate([100]);
+						navigator.vibrate && navigator.vibrate([100]);
 					}
 				}
 			}

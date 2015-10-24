@@ -557,7 +557,11 @@ body { -webkit-user-select: none; background: #333;}
 	$id = isset($_GET['id']) ? $_GET['id'] : 1;  //1为A 2为B
 	$mode = isset($_GET['mode']) ? $_GET['mode'] : 'team';  //single为单人 其余为多人
 	$debug = isset($_GET['debug']) ? $_GET['debug'] : 0;  //debug下将自动打
+	include('socket/config.php');
 ?>
+	var wsHost = '<?php echo $host; ?>';
+	var wsPort = '<?php echo $port; ?>';
+
 	var deviceId = <?php echo $id; ?>;
 	var mode = '<?php echo $mode; ?>';
 	var debug = <?php echo $debug; ?>;

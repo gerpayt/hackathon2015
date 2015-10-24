@@ -4,7 +4,8 @@
 //WebSocket通信的顶级父类
 var WSocket = function(log, role, rid)
 {
-	this.host = 'ws://192.168.0.105:12345/';
+	this.host = 'ws://' + wsHost + ':' + wsPort + '/';
+	// this.host = 'ws://192.168.0.105:12345/';
 	// this.host = 'ws://192.168.1.82:12345/';
 	// this.host = 'ws://192.168.86.1:12345/';
 	this.socket = null;

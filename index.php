@@ -46,7 +46,11 @@
 <script>
 <?php
 	$id = isset($_GET['id']) ? $_GET['id'] : 1;  //1为A 2为B
+	include('socket/config.php');
 ?>
+	var wsHost = '<?php echo $host; ?>';
+	var wsPort = '<?php echo $port; ?>';
+
 	var deviceId = <?php echo $id; ?>;
 	var ws = new HandlePlayWS(_('log'), deviceId);
 
