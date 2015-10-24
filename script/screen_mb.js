@@ -473,7 +473,9 @@ var moveBall = function()
         hit();
     }
 
-    // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
+    console.log(fallPosy);
+
+    // // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
     if (fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2 && deviceId == 1)
     {
         //玩家一视角下 有人死了
@@ -512,7 +514,13 @@ var moveBall = function()
             showScore(1);
         }
     }
-    else if (fallTime < 2000)
+    // else if (fallTime < 2000)
+    // {
+    //     clearTimeout(handleMoveBall);
+    //     handleMoveBall = setTimeout(moveBall, 20);
+    // }
+
+    if (fallTime < 2000)
     {
         clearTimeout(handleMoveBall);
         handleMoveBall = setTimeout(moveBall, 20);
@@ -715,12 +723,14 @@ var moveCamera = function(x, z)
 //     net.style.webkitTransform = "translateY(300px) translateZ(" + (i*15) + "px) rotateX(-" + (i*4.5) + "deg) rotateZ(-" + (i*4.5) + "deg)  translateX(" + (i*-25) + "px)";
 // }
 
+var nowNetHeight = 0;
 var changeNetHeight = function(y) //0-100
 {
     if (y < 0) y = 0;
     if (y > 100) y = 100;
     net.style.height = (54 - 50 + y) + "px";
     net.style.top = (548 + 50 - y) + "px";
+    nowNetHeight = y;
 }
 
 
