@@ -256,7 +256,9 @@ var dongganGame = function()
     document.querySelector("#beforeGame").style.cssText = "-webkit-transition: all 1s; left: -9999px;";
     wa.play();
 //    document.querySelector("#beforeGame").remove();
-    _('script1').src="script/screen_dg.js";
+    var s = document.createElement('script');
+    s.src = 'script/screen_dg.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
 //    document.innerHTML += '<script type="text/javascript" src=></script>';
 }
 

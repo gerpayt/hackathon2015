@@ -159,9 +159,9 @@ function showScore(player){
         }, 1000);
 
         // obj.style.cssText = "-webkit-animation: playerWin 1s ease;"
-        if (abs(playerAScore - playerBScore) >= 3) {
-
-        }
+//        if (abs(playerAScore - playerBScore) >= 3) {
+//
+//        }
         document.querySelector("#score").innerText = playerAScore * 15 + ":" + playerBScore * 15;
     }
     else
