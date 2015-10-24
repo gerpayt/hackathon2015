@@ -72,8 +72,8 @@
 
 <div id="info">
 	<div class="scores">
-		<span class="avatar avatar-him"><img src="image/Glawind/header/forward.jpg" /></span>
-		<span id="score">0:0</span>
+		<span class="avatar avatar-him"><img src="image/zyt/header/forward.jpg" /></span>
+        <span id="score">0:0</span>
 		<span class="avatar avatar-me"><img src="image/cf/header/forward.jpg" /></span>
 	</div>
 </div> 
