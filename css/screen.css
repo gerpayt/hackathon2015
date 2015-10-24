@@ -351,24 +351,6 @@ body { -webkit-user-select: none; background: #333;}
 }
 
 
-
-.welcome-text {
-    color: #FFF;
-    font-size: 24px;
-    font-family: "Microsoft Yahei";
-    position: absolute;
-    top: -30px;
-}
-
-.weblcome-text-ver {
-    width: 24px;
-    left: -80px;
-    overflow: hidden;
-    display: inline-block;
-    word-break: break-all;
-}
-
-
 .boxPlayerA {
     -webkit-transform: translateY(560px) translateZ(300px)translateX(00px) rotateY(180deg) scale3d(0.14,0.14,0.14);
 }
@@ -493,4 +475,21 @@ body { -webkit-user-select: none; background: #333;}
 }
 #modeDiv .mode-2:hover {
     background: url("../image/mode-hover-2.png");
+}
+#light-1 {
+    position: absolute;
+    top: 6px;
+    left: 262px;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
+}
+#light-2 {
+    position: absolute;
+    top: 6px;
+    left: 477px;
+    display: block;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
 }

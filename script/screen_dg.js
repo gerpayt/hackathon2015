@@ -509,20 +509,6 @@ var initBoxPlayer = function(deviceId)
         var attr = item.getAttribute("src");
         item.setAttribute("src", attr.replace("blank", "cf"));
     });
-    // 修改文字信息
-    // var text = anotherPlayer.querySelector(".welcome-text");
-    // text.classList.add("weblcome-text-ver")
-
-
-    // 添加Class
-    // var roleClass = anotherPlayer.getAttribute("class");
-    // anotherPlayer.classList.remove("role-action-run");
-    // anotherPlayer.classList.add("role-action-jump");
-
-    // 修改背景色
-    // var container = document.querySelector("#beforeGame");
-    // container.style.backgroundColor = "#657965";
-
 }
 initBoxPlayer(deviceId);
 

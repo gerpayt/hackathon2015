@@ -138,7 +138,6 @@
 		        <div class="inBox box-bottom"><img src="image/blank/footer/bottom.jpg" /></div>-->
 			</div>
 		</div>
-		<div class="welcome-text">大家好，我是A~</div>
 	</div>
 	<div class="rolebox role-b role-action-run">
 		<div class="role-header">
@@ -183,7 +182,6 @@
 		        <div class="inBox box-bottom"><img src="image/blank/footer/bottom.jpg" /></div>-->
 			</div>
 		</div>
-		<div class="welcome-text">大家好，我是B~</div>
 	</div>
     <div id="playerDiv">
         <div class="player-1"></div>
@@ -191,6 +189,8 @@
         <div class="player-3"></div>
         <div class="player-4"></div>
     </div>
+    <div class="light" id="light-1" style="display: none"></div>
+    <div class="light" id="light-2" style="display: none"></div>
     <div id="codeDiv">
         <canvas id="canvas2" width="500" height="300" style="width:210px; height:120px;"></canvas>
         <canvas id="canvas0" width="500" height="300" style="width:210px; height:120px;"></canvas>
