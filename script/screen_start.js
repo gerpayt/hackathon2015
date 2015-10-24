@@ -197,11 +197,11 @@ var continueMovie = function(role)
         roleBox1.classList.add("role-action-jump");
 
         // 修改背景色
-        var container = document.querySelector("#beforeGame");
+//        var container = document.querySelector("#beforeGame");
 //        container.style.backgroundColor = "#657965";
 
         // 添加到容器
-        container.appendChild(roleBox1);
+//        container.appendChild(roleBox1);
 
 //        roleBox1.style.top = "9999px";
 
@@ -232,11 +232,11 @@ var continueMovie = function(role)
         roleBox2.classList.add("role-action-jump");
 
         // 修改背景色
-        var container = document.querySelector("#beforeGame");
+//        var container = document.querySelector("#beforeGame");
 //        container.style.backgroundColor = "#657965";
 
         // 添加到容器
-        container.appendChild(roleBox2);
+//        container.appendChild(roleBox2);
 
 //        roleBox2.style.top = "9999px";
 
