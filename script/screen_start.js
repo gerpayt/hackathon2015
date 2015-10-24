@@ -248,7 +248,6 @@ var finishMovie = function()
 {
     _('codeDiv').style.display = "none";
     _('modeDiv').style.display = "block";
-//    ws.sendTarget('donggan');
 //    document.querySelector("#beforeGame").remove();
 }
 var dongganGame = function()

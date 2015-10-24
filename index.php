@@ -50,7 +50,6 @@
     var deviceId = <?php echo $id; ?>;
 </script>
 <script type="text/javascript" src="script/func.js?r=<?php echo rand(); ?>"></script>
-<script type="text/javascript" src="script/main.js?r=<?php echo rand(); ?>"></script>
 <script type="text/javascript" src="script/start.js?r=<?php echo rand(); ?>"></script>
 <script type="text/javascript" src="script/ws.js?r=<?php echo rand(); ?>"></script>
 <script>
@@ -60,21 +59,6 @@
 	var garden = document.querySelector('.garden');
 	var maxX = garden.clientWidth  - ball.clientWidth;
 	var maxY = garden.clientHeight - ball.clientHeight;
-
-	var a = function()
-	{
-		_('log').style.color = 'red';
-	}
-	if (window.DeviceMotionEvent)
-	{
-		_('main').innerHTML = '=======';
-		var dm = new DMotion(a);
-		dm.start();
-	}
-	else
-	{
-		_('main').innerHTML = '11111111111';
-	}
 
 	navigator.vibrate = navigator.vibrate ||
        navigator.webkitVibrate ||

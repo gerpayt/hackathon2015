@@ -471,3 +471,21 @@ DMotion.prototype.log2 = function(pos)
 	_('log2').innerHTML = log;
 }
 
+var a = function()
+{
+    _('log').style.color = 'red';
+}
+//if (window.DeviceMotionEvent)
+//{
+    _('main').innerHTML = '=======';
+    var dm = new DMotion(a);
+    dm.start();
+//}
+//else
+//{
+//    _('main').innerHTML = '11111111111';
+//}
+
+//本轮结束
+
+dm.targetOrient = 0;

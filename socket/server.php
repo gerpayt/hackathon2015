@@ -17,6 +17,10 @@
                     if ($code == '12369') {
                         $this->sendToPat(substr('' . $user->socket, 13) . ',' . $msg, $user);
                     }
+                } elseif (substr($msg, 0, 7) == 'donggan') {
+                    $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
+                } elseif (substr($msg, 0, 5) == 'maiba') {
+                    $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
                 } elseif (substr($msg, 0, 6) == 'screen') {
 					$user->role = 'screen';
 					$user->rid = substr($msg, 7);
