@@ -95,7 +95,7 @@ body { -webkit-user-select: none; background: #333;}
     left:0;
     height: 100%;
     width: 100%;
-    background: #333;
+    background: url('../image/bg.png');
 }
 .playerA {
     position: absolute;
@@ -128,9 +128,9 @@ body { -webkit-user-select: none; background: #333;}
     -webkit-transform: rotateX(-10deg);
 }
 .rolebox.role-a {
-    top: 120px;
+    top: 300px;
     left: 50%;
-    margin-left: -150px;
+    margin-left: -600px;
     height: 400px;
     width: 300px;
     /*border: 1px solid #FFF;*/
@@ -141,9 +141,9 @@ body { -webkit-user-select: none; background: #333;}
 
 }
 .rolebox.role-b {
-    top: 128px;
+    top: 305px;
     left: 50%;
-    margin-left: 150px;
+    margin-left: -100px;
     height: 400px;
     width: 300px;
     /*border: 1px solid #FFF;*/
@@ -351,24 +351,6 @@ body { -webkit-user-select: none; background: #333;}
 }
 
 
-
-.welcome-text {
-    color: #FFF;
-    font-size: 24px;
-    font-family: "Microsoft Yahei";
-    position: absolute;
-    top: -30px;
-}
-
-.weblcome-text-ver {
-    width: 24px;
-    left: -80px;
-    overflow: hidden;
-    display: inline-block;
-    word-break: break-all;
-}
-
-
 .boxPlayerA {
     -webkit-transform: translateY(560px) translateZ(300px)translateX(00px) rotateY(180deg) scale3d(0.14,0.14,0.14);
 }
@@ -437,3 +419,79 @@ body { -webkit-user-select: none; background: #333;}
 .player { position: absolute; left:290px; top: 590px; width: 20px; height:20px; border-radius: 40px; border:1px solid red; background:rgb(253, 22, 22); -webkit-box-shadow: 0 0 5px #000, 0 0 10px #000; opacity: 0.6;
     display:none;}
 .pos { position: absolute; left:290px; top: 590px; width: 20px; height:20px; border-radius: 40px; border:1px solid orange; background:#E9967A; -webkit-box-shadow: 0 0 5px #000, 0 0 10px #000; opacity: 0.7;}
+
+#playerDiv {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    /*height: 226px;*/
+    /*width: 180px;*/
+}
+#playerDiv div {
+    height: 226px;
+    width: 180px;
+    margin: 0 15px;
+    display: inline-block;
+}
+#playerDiv .player-1 {
+    background: url("../image/player-1.png");
+}
+#playerDiv .player-2 {
+    background: url("../image/player-2.png");
+}
+#playerDiv .player-3 {
+    background: url("../image/player-3.png");
+}
+#playerDiv .player-4 {
+    background: url("../image/player-4.png");
+}
+
+#codeDiv {
+    z-index: 2;
+    top: 150px;
+    left: 49px;
+    position: absolute;
+}
+
+#modeDiv {
+    position: absolute;
+    top: 160px;
+    left: 80px;
+    display: block;
+}
+#modeDiv div {
+    height: 105px;
+    width: 333px;
+    margin: 0 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+#modeDiv .mode-1 {
+    background: url("../image/mode-1.png");
+}
+#modeDiv .mode-2 {
+    background: url("../image/mode-2.png");
+}
+#modeDiv .mode-1:hover {
+    background: url("../image/mode-hover-1.png");
+}
+#modeDiv .mode-2:hover {
+    background: url("../image/mode-hover-2.png");
+}
+#light-1 {
+    position: absolute;
+    top: 6px;
+    left: 262px;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
+}
+#light-2 {
+    position: absolute;
+    top: 6px;
+    left: 477px;
+    display: block;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
+}

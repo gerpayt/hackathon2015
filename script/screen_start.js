@@ -177,33 +177,20 @@ var continueMovie = function(role)
         var roleBox1 = document.querySelector(".role-a");
         [].slice.call(roleBox1.querySelectorAll("img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "zyt"));
+            item.setAttribute("src", attr.replace("blank", "zyt"));
         });
 
         [].slice.call(document.querySelectorAll(".boxPlayerA img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "zyt"));
+            item.setAttribute("src", attr.replace("blank", "zyt"));
         });
-
-        // 修改文字信息
-        var text = roleBox1.querySelector(".welcome-text");
-        text.innerHTML = "大家好，我是CF~";
-        text.classList.add("weblcome-text-ver")
-
 
         // 添加Class
         var roleClass = roleBox1.getAttribute("class");
         roleBox1.classList.remove("role-action-run");
         roleBox1.classList.add("role-action-jump");
 
-        // 修改背景色
-//        var container = document.querySelector("#beforeGame");
-//        container.style.backgroundColor = "#657965";
-
-        // 添加到容器
-//        container.appendChild(roleBox1);
-
-//        roleBox1.style.top = "9999px";
+        _('light-1').style.display = 'block';
 
     } else {
 //        var roleBox2 = roleBox.cloneNode(true);
@@ -211,43 +198,35 @@ var continueMovie = function(role)
 
         [].slice.call(roleBox2.querySelectorAll("img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("cat", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
         });
 
         [].slice.call(document.querySelectorAll(".boxPlayerB img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("cat", "cf"));
-            item.setAttribute("src", attr.replace("spider", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
         });
-
-        // 修改文字信息
-        var text = roleBox2.querySelector(".welcome-text");
-        text.innerHTML = "大家好，我是CF~";
-        text.classList.add("weblcome-text-ver")
-
 
         // 添加Class
         var roleClass = roleBox2.getAttribute("class");
         roleBox2.classList.remove("role-action-run");
         roleBox2.classList.add("role-action-jump");
 
-        // 修改背景色
-//        var container = document.querySelector("#beforeGame");
-//        container.style.backgroundColor = "#657965";
-
-        // 添加到容器
-//        container.appendChild(roleBox2);
-
-//        roleBox2.style.top = "9999px";
-
+        _('light-2').style.display = 'block';
     }
 }
 
 var finishMovie = function()
 // 双方划码完成// 选择模式
 {
-    _('codeDiv').style.display = "none";
-    _('modeDiv').style.display = "block";
+    setTimeout(function(){
+        _('codeDiv').style.display = "none";
+        _('playerDiv').style.display = "none";
+        _('light-1').style.display = "none";
+        _('light-2').style.display = "none";
+        _('modeDiv').style.display = "block";
+    }, 2500);
+
 //    document.querySelector("#beforeGame").remove();
 }
 var dongganGame = function()
