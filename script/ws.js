@@ -146,6 +146,14 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 		// shake,1
 		this.onSocketCode(data[2]);
 	}
+	else if (data[1] == 'donggan')
+	{
+		dongganGame();
+	}
+	else if (data[1] == 'maiba')
+	{
+        maibaGame();
+	}
 }
 //收到user信号
 ScreenPlayWS.prototype.onSocketUser = function(userArr)
@@ -350,6 +358,26 @@ HandlePlayWS.prototype.onSocketMessage = function(msg)
 		// end,1
 		this.onSocketEnd(data[2]);
 	}
+    else if (data[1] == 'donggan')
+    {
+        // shake,1
+        this.onDongganGame();
+    }else if (data[1] == 'maiba')
+    {
+        // shake,1
+        this.onMaibaGame();
+    }
+}
+HandlePlayWS.prototype.onDongganGame = function() {
+    var s = document.createElement('script');
+    s.src = 'script/main_dg.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+
+}
+HandlePlayWS.prototype.onMaibaGame = function() {
+    var s = document.createElement('script');
+    s.src = 'script/main_mb.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
 }
 //收到user信号
 HandlePlayWS.prototype.onSocketUser = function(userArr)

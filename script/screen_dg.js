@@ -503,11 +503,11 @@ var initBoxPlayer = function(deviceId)
     var anotherPlayer = (deviceId == 1) ? boxPlayerB : boxPlayerA;
     [].slice.call(anotherPlayer.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        // item.setAttribute("src", attr.replace("spider", "Glawind"));
+        item.setAttribute("src", attr.replace("spider", "zyt"));
     });
     [].slice.call(boxPlayerA.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("spider", "Glawind"));
+        item.setAttribute("src", attr.replace("spider", "cf"));
     });
     // 修改文字信息
     // var text = anotherPlayer.querySelector(".welcome-text");

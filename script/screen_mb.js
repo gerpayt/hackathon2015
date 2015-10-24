@@ -163,6 +163,8 @@ if (deviceId == 1) {
     cv_init(1);
     cv_init(2);
     cv_init(3);
+} else {
+    _('beforeGame').style.display = 'none';
 }
 
 
@@ -728,11 +730,11 @@ var initBoxPlayer = function(deviceId)
     var anotherPlayer = (deviceId == 1) ? boxPlayerB : boxPlayerA;
     [].slice.call(anotherPlayer.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        // item.setAttribute("src", attr.replace("spider", "Glawind"));
+        item.setAttribute("src", attr.replace("spider", "zyt"));
     });
     [].slice.call(boxPlayerA.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("spider", "Glawind"));
+        item.setAttribute("src", attr.replace("spider", "cf"));
     });
     // 修改文字信息
     // var text = anotherPlayer.querySelector(".welcome-text");
@@ -810,6 +812,14 @@ var continueMovie = function()
     roleBox.style.top = "9999px";
 }
 var finishMovie = function()
+// 双方划码完成// 选择模式
+{
+    _('codeDiv').style.display = "none";
+    _('modeDiv').style.display = "block";
+//    ws.sendTarget('donggan');
+//    document.querySelector("#beforeGame").remove();
+}
+var dongganGame = function()
 {
     document.querySelector("#beforeGame").style.cssText = "-webkit-transition: all 1s; left: -9999px;";
     wa.play();
@@ -817,7 +827,8 @@ var finishMovie = function()
 }
 if (mode == 'single')
 {
-    continueMovie();
+    continueMovie(1);
+    continueMovie(2);
     document.querySelector(".role-action-jump").addEventListener("webkitAnimationEnd", function(){
         document.querySelector(".role-action-jump").classList.add("bodyAni")
     })

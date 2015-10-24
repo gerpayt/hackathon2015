@@ -192,8 +192,8 @@
         <canvas id="canvas3" width="500" height="300" style="width:250px; height:150px;"></canvas>
     </div>
     <div id="modeDiv" style="display: none">
-        <span onclick="dongganGame()" style="position:absolute; top:400px; left: 300px; width: 100px; height: 40px; display: block">动感模式</span>
-        <span onclick="maibaGame()" style="position:absolute; top:500px; left: 300px; width: 100px; height: 40px; display: block">麦霸模式</span>
+        <span onclick="dongganGame();ws.send('donggan');" style="position:absolute; top:400px; left: 300px; width: 100px; height: 40px; display: block">动感模式</span>
+        <span onclick="maibaGame();ws.send('maiba');" style="position:absolute; top:500px; left: 300px; width: 100px; height: 40px; display: block">麦霸模式</span>
     </div>
 </div>
 
