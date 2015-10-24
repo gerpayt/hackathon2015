@@ -141,6 +141,19 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 		// shake,1
 		this.onSocketShake(data[2]);
 	}
+	else if (data[1] == 'code')
+	{
+		// shake,1
+		this.onSocketCode(data[2]);
+	}
+	else if (data[1] == 'donggan')
+	{
+		dongganGame();
+	}
+	else if (data[1] == 'maiba')
+	{
+        maibaGame();
+	}
 }
 //收到user信号
 ScreenPlayWS.prototype.onSocketUser = function(userArr)
@@ -232,6 +245,68 @@ ScreenPlayWS.prototype.onSocketShake = function(rid)
 		finishMovie();  //play
 	}
 }
+//收到shake信号
+ScreenPlayWS.prototype.onSocketCode = function(mycode)
+{
+    console.log(mycode);
+
+    if ((user[0] == 0) && ((code[0] == mycode) || (code[0].split('').reverse().join('') == mycode)))
+    {
+        continueMovie(1);
+        ws.send('connect,0,' + data[0]);
+//        cv_clear(0);
+        user[0] = data[0];
+        if (user[1] || user[2] || user[3])
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+    else if ((user[1] == 0) && ((code[1] == mycode) || (code[1].split('').reverse().join('') == mycode)))
+    {
+        continueMovie(2);
+        ws.send('connect,1,' + data[0]);
+//        cv_clear(1);
+        user[1] = data[0];
+        if (user[0] || user[2] || user[3])
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+    else if ((user[2] == 0) && ((code[2] == mycode) || (code[2].split('').reverse().join('') == mycode)))
+    {
+        ws.send('connect,2,' + data[0]);
+//        cv_clear(2);
+        user[2] = data[0];
+        if (user[0] || user[1] || user[3])
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+    else if ((user[3] == 0) && ((code[3] == mycode) || (code[3].split('').reverse().join('') == mycode)))
+    {
+        ws.send('connect,3,' + data[0]);
+//        cv_clear(3);
+        user[3] = data[0];
+        if (user[0] || user[1] || user[2])
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+//
+//    console.log(rid);
+//	if (rid == 2)
+//	{
+//		continueMovie();  //play
+//	}
+//	else
+//	{
+//		finishMovie();  //play
+//	}
+}
 //发送方向给手柄
 ScreenPlayWS.prototype.sendTarget = function(orient)
 {
@@ -283,6 +358,28 @@ HandlePlayWS.prototype.onSocketMessage = function(msg)
 		// end,1
 		this.onSocketEnd(data[2]);
 	}
+    else if (data[1] == 'donggan')
+    {
+        // shake,1
+        this.onDongganGame();
+    }else if (data[1] == 'maiba')
+    {
+        // shake,1
+        this.onMaibaGame();
+    }
+}
+HandlePlayWS.prototype.onDongganGame = function() {
+    var s = document.createElement('script');
+    s.src = 'script/main_dg.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+    _('canvas').remove();
+
+}
+HandlePlayWS.prototype.onMaibaGame = function() {
+    var s = document.createElement('script');
+    s.src = 'script/main_mb.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+    _('canvas').remove();
 }
 //收到user信号
 HandlePlayWS.prototype.onSocketUser = function(userArr)

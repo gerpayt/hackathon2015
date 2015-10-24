@@ -95,7 +95,7 @@ body { -webkit-user-select: none; background: #333;}
     left:0;
     height: 100%;
     width: 100%;
-    background: #333;
+    background: url('../image/bg.png');
 }
 .playerA {
     position: absolute;
@@ -112,7 +112,6 @@ body { -webkit-user-select: none; background: #333;}
 }
 
 .playerA.role-action-run {
-    -webkit-transform: rotateX(-10deg) rotateY(-8deg);
     -webkit-animation: boxRotate 3s linear 0 /*infinite alternate*/;
 }
 .rolebox {
@@ -128,14 +127,38 @@ body { -webkit-user-select: none; background: #333;}
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateX(-10deg);
 }
+.rolebox.role-a {
+    top: 300px;
+    left: 50%;
+    margin-left: -600px;
+    height: 400px;
+    width: 300px;
+    /*border: 1px solid #FFF;*/
+    -webkit-perspective: 9000px;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(20deg) scale3d(0.8,0.8,0.8);
+
+}
+.rolebox.role-b {
+    top: 305px;
+    left: 50%;
+    margin-left: -100px;
+    height: 400px;
+    width: 300px;
+    /*border: 1px solid #FFF;*/
+    -webkit-perspective: 9000px;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(-20deg) scale3d(0.8,0.8,0.8);
+}
 
 .rolebox.role-action-run {
-    -webkit-transform: rotateX(-10deg) rotateY(-8deg);
     -webkit-animation: boxRotate 3s linear 0 /*infinite alternate*/;
 }
 .role-action-run {}
 .role-action-run .body-down {
-    -webkit-transform: rotateY(30deg);
+    /*-webkit-transform: rotateY(30deg);*/
     -webkit-transform-style: preserve-3d;
 }
 .role-action-run  .role-header {
@@ -197,6 +220,7 @@ body { -webkit-user-select: none; background: #333;}
 .role-header {
     /*-webkit-transform: rotateY(8deg);*/
     -webkit-transform-style: preserve-3d;
+    /*-webkit-animation: playerRun 0.8s linear 0.8s infinite alternate;*/
 }
 .role-body {
     margin-top: 140px;
@@ -327,24 +351,6 @@ body { -webkit-user-select: none; background: #333;}
 }
 
 
-
-.welcome-text {
-    color: #FFF;
-    font-size: 24px;
-    font-family: "Microsoft Yahei";
-    position: absolute;
-    top: -30px;
-}
-
-.weblcome-text-ver {
-    width: 24px;
-    left: -80px;
-    overflow: hidden;
-    display: inline-block;
-    word-break: break-all;
-}
-
-
 .boxPlayerA {
     -webkit-transform: translateY(560px) translateZ(300px)translateX(00px) rotateY(180deg) scale3d(0.14,0.14,0.14);
 }
@@ -395,6 +401,17 @@ body { -webkit-user-select: none; background: #333;}
 #box {height: 1200px; width: 600px; top:-600px; margin:0 auto;position: relative; -webkit-perspective: 800px;}
 #outer {position: absolute; border:1px solid green; height: 100%; width: 100%;-webkit-transform: rotateX(90deg)translateZ(-300px);}
 #net {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px);}
+#net_mb1 {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px); display: none;}
+#net_mb2 {position: absolute; height: 54px; width: 480px;  opacity: 0.5; top:548px; left: 60px; border:0; -webkit-transform:translateY(300px); display: none;}
+
+.ad1 {position: absolute; top:600px; left: 2px; height: 45px; width: 600px; background:url('../image/ad.png') no-repeat; -webkit-transform: translateZ(-595px)translateY(255px)rotateX(15deg);}
+.ad2 {position: absolute; top:600px; left: 2px; height: 45px; width: 1200px; background:url('../image/ad.png') repeat-x; -webkit-transform: translateY(256px)translateX(-600px)rotateY(90deg)rotateX(15deg);}
+.ad3 {position: absolute; top:600px; left: 2px; height: 45px; width: 1200px; background:url('../image/ad.png') repeat-x; -webkit-transform: translateY(255px)rotateY(-90deg)rotateX(15deg);}
+
+.viewer1 {position: absolute; top:600px; left: 2px; height: 400px; width: 1200px; background:url('../image/viewer.png') repeat-x; opacity: 0.85; -webkit-transform: translateZ(-830px)translateX(-300px)translateY(-70px)rotateX(35deg);}
+.viewer2 {position: absolute; top:600px; left: 2px; height: 400px; width: 1800px; background:url('../image/viewer.png') repeat-x; opacity: 0.85; -webkit-transform: translateY(-50px)translateX(-1090px)rotateY(90deg)rotateX(35deg);}
+.viewer3 {position: absolute; top:600px; left: 2px; opacity: 0.85; height: 400px; width: 1800px; background:url('../image/viewer.png') repeat-x; -webkit-transform: translateY(-69px)translateZ(-100px)translateX(-129px)rotateY(-90deg)rotateX(35deg);}
+
 /*#bg { height: 800px; width: 400px; margin:200px 100px; position: absolute; border:1px solid green; box-shadow: 2px 2px 2px #CCC;}*/
 .ball { position: absolute; left:295px; top: 595px; width: 10px; height:10px; border-radius: 20px; border:1px solid yellow; background:rgb(253, 253, 182); -webkit-box-shadow: 0 3 5px #000;
 }
@@ -403,7 +420,81 @@ body { -webkit-user-select: none; background: #333;}
     display:none;}
 .pos { position: absolute; left:290px; top: 590px; width: 20px; height:20px; border-radius: 40px; border:1px solid orange; background:#E9967A; -webkit-box-shadow: 0 0 5px #000, 0 0 10px #000; opacity: 0.7;}
 
+#playerDiv {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    /*height: 226px;*/
+    /*width: 180px;*/
+}
+#playerDiv div {
+    height: 226px;
+    width: 180px;
+    margin: 0 15px;
+    display: inline-block;
+}
+#playerDiv .player-1 {
+    background: url("../image/player-1.png");
+}
+#playerDiv .player-2 {
+    background: url("../image/player-2.png");
+}
+#playerDiv .player-3 {
+    background: url("../image/player-3.png");
+}
+#playerDiv .player-4 {
+    background: url("../image/player-4.png");
+}
 
+#codeDiv {
+    z-index: 2;
+    top: 150px;
+    left: 49px;
+    position: absolute;
+}
+
+#modeDiv {
+    position: absolute;
+    top: 160px;
+    left: 80px;
+    display: block;
+}
+#modeDiv div {
+    height: 105px;
+    width: 333px;
+    margin: 0 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+#modeDiv .mode-1 {
+    background: url("../image/mode-1.png");
+}
+#modeDiv .mode-2 {
+    background: url("../image/mode-2.png");
+}
+#modeDiv .mode-1:hover {
+    background: url("../image/mode-hover-1.png");
+}
+#modeDiv .mode-2:hover {
+    background: url("../image/mode-hover-2.png");
+}
+#light-1 {
+    position: absolute;
+    top: 6px;
+    left: 262px;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
+}
+#light-2 {
+    position: absolute;
+    top: 6px;
+    left: 477px;
+    display: block;
+    height: 136px;
+    width: 200px;
+    background: url("../image/light.png");
+}
 div#lyricWrapper {
     position: absolute;
     top: 20px;
