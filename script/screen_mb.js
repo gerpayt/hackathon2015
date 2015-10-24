@@ -315,6 +315,9 @@ var net = _('net');
 var shadow = _('shadow');
 var pos = _('pos');
 var player = _('player');
+var ad1 = _('ad1');
+var ad2 = _('ad2');
+var ad3 = _('ad3');
 
 //每回合不一样的数据
 var ballx = 0;  //球此刻x坐标
@@ -702,6 +705,9 @@ var moveCamera = function(x, z)
 {
     outer.style.webkitTransform = "rotateX(90deg) translateZ(" + (z*-1-300) + "px) translateX(" + (x*-1) + "px)";
     net.style.webkitTransform = "translateY(" + (z+300) + "px) translateX(" + (x*-1) + "px)";
+    ad1.style.webkitTransform = "translateZ(-595px)translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateX(15deg)";
+    ad2.style.webkitTransform = "translateY(" + (z+256) + "px)translateX(" + (x*-1-600) + "px)rotateY(90deg)rotateX(15deg)";
+    ad3.style.webkitTransform = "translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateY(-90deg)rotateX(15deg)";
 }
 // var beginCamera = function(i) //0-20
 // {
