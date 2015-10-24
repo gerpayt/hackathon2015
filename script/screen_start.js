@@ -177,12 +177,12 @@ var continueMovie = function(role)
         var roleBox1 = document.querySelector(".role-a");
         [].slice.call(roleBox1.querySelectorAll("img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "zyt"));
+            item.setAttribute("src", attr.replace("blank", "zyt"));
         });
 
         [].slice.call(document.querySelectorAll(".boxPlayerA img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("spider", "zyt"));
+            item.setAttribute("src", attr.replace("blank", "zyt"));
         });
 
         // 修改文字信息
@@ -211,13 +211,13 @@ var continueMovie = function(role)
 
         [].slice.call(roleBox2.querySelectorAll("img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("cat", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
         });
 
         [].slice.call(document.querySelectorAll(".boxPlayerB img")).forEach(function(item, index){
             var attr = item.getAttribute("src");
-            item.setAttribute("src", attr.replace("cat", "cf"));
-            item.setAttribute("src", attr.replace("spider", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
+            item.setAttribute("src", attr.replace("blank", "cf"));
         });
 
         // 修改文字信息
@@ -247,6 +247,7 @@ var finishMovie = function()
 // 双方划码完成// 选择模式
 {
     _('codeDiv').style.display = "none";
+    _('playerDiv').style.display = "none";
     _('modeDiv').style.display = "block";
 //    document.querySelector("#beforeGame").remove();
 }

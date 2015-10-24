@@ -545,11 +545,11 @@ var initBoxPlayer = function(deviceId)
     var anotherPlayer = (deviceId == 1) ? boxPlayerB : boxPlayerA;
     [].slice.call(anotherPlayer.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("spider", "zyt"));
+        item.setAttribute("src", attr.replace("blank", "zyt"));
     });
     [].slice.call(boxPlayerA.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("spider", "cf"));
+        item.setAttribute("src", attr.replace("blank", "cf"));
     });
     // 修改文字信息
     // var text = anotherPlayer.querySelector(".welcome-text");

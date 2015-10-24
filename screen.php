@@ -28,45 +28,45 @@
 	    </div> -->
 <div id="boxPlayer">
 	<div class="role-header">
-		<div class="inBox box-forward"><img src="image/spider/header/forward.jpg" /></div>
-        <div class="inBox box-back"><img src="image/spider/header/back.jpg" /></div>
-        <div class="inBox box-left"><img src="image/spider/header/left.jpg" /></div>
-        <div class="inBox box-right"><img src="image/spider/header/right.jpg" /></div>
-        <div class="inBox box-top"><img src="image/spider/header/top.jpg" /></div>
-        <div class="inBox box-bottom"><img src="image/spider/header/bottom.jpg" /></div>
+		<div class="inBox box-forward"><img src="image/blank/header/forward.jpg" /></div>
+        <div class="inBox box-back"><img src="image/blank/header/back.jpg" /></div>
+        <div class="inBox box-left"><img src="image/blank/header/left.jpg" /></div>
+        <div class="inBox box-right"><img src="image/blank/header/right.jpg" /></div>
+        <div class="inBox box-top"><img src="image/blank/header/top.jpg" /></div>
+        <div class="inBox box-bottom"><img src="image/blank/header/bottom.jpg" /></div>
 	</div>
 	<div class="body-down">
 		<div class="role-body">
-			<div class="inBox box-forward"><img src="image/spider/body/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/spider/body/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/spider/body/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/spider/body/right.jpg" /></div>
-	        <!-- <div class="inBox box-top"><img src="image/spider/body/top.jpg" /></div> -->
-	        <div class="inBox box-bottom"><img src="image/spider/body/bottom.jpg" /></div>
+			<div class="inBox box-forward"><img src="image/blank/body/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/body/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/body/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/body/right.jpg" /></div>
+	        <!-- <div class="inBox box-top"><img src="image/blank/body/top.jpg" /></div> -->
+	        <div class="inBox box-bottom"><img src="image/blank/body/bottom.jpg" /></div>
 		</div>
 		<div class="role-hand role-hand-left">
-			<div class="inBox box-forward"><img src="image/spider/hand/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/spider/hand/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/spider/hand/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/spider/hand/right.jpg" /></div>
-	        <div class="inBox box-top"><img src="image/spider/hand/top.jpg" /></div>
-	        <div class="inBox box-bottom"><img src="image/spider/hand/bottom.jpg" /></div>
+			<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+	        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+	        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 		</div>
 		<div class="role-hand role-hand-right">
-			<div class="inBox box-forward"><img src="image/spider/hand/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/spider/hand/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/spider/hand/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/spider/hand/right.jpg" /></div>
-	        <div class="inBox box-top"><img src="image/spider/hand/top.jpg" /></div>
-	        <div class="inBox box-bottom"><img src="image/spider/hand/bottom.jpg" /></div>
+			<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+	        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+	        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 		</div>
 		<div class="role-footer">
-			<div class="inBox box-forward"><img src="image/spider/footer/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/spider/footer/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/spider/footer/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/spider/footer/right.jpg" /></div>
-	        <!-- <div class="inBox box-top"><img src="image/spider/footer/top.jpg" /></div>
-	        <div class="inBox box-bottom"><img src="image/spider/footer/bottom.jpg" /></div>-->
+			<div class="inBox box-forward"><img src="image/blank/footer/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/footer/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/footer/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/footer/right.jpg" /></div>
+	        <!-- <div class="inBox box-top"><img src="image/blank/footer/top.jpg" /></div>
+	        <div class="inBox box-bottom"><img src="image/blank/footer/bottom.jpg" /></div>-->
 		</div>
 	</div>
 	<div class="role-racket">
@@ -97,103 +97,109 @@
 <div id="beforeGame" style="display:;">
 	<div class="rolebox role-a role-action-run">
 		<div class="role-header">
-			<div class="inBox box-forward"><img src="image/spider/header/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/spider/header/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/spider/header/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/spider/header/right.jpg" /></div>
-	        <div class="inBox box-top"><img src="image/spider/header/top.jpg" /></div>
-	        <div class="inBox box-bottom"><img src="image/spider/header/bottom.jpg" /></div>
+			<div class="inBox box-forward"><img src="image/blank/header/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/header/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/header/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/header/right.jpg" /></div>
+	        <div class="inBox box-top"><img src="image/blank/header/top.jpg" /></div>
+	        <div class="inBox box-bottom"><img src="image/blank/header/bottom.jpg" /></div>
 		</div>
 		<div class="body-down">
 			<div class="role-body">
-				<div class="inBox box-forward"><img src="image/spider/body/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/spider/body/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/spider/body/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/spider/body/right.jpg" /></div>
-		        <!-- <div class="inBox box-top"><img src="image/spider/body/top.jpg" /></div> -->
-		        <div class="inBox box-bottom"><img src="image/spider/body/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/body/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/body/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/body/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/body/right.jpg" /></div>
+		        <!-- <div class="inBox box-top"><img src="image/blank/body/top.jpg" /></div> -->
+		        <div class="inBox box-bottom"><img src="image/blank/body/bottom.jpg" /></div>
 			</div>
 			<div class="role-hand role-hand-left">
-				<div class="inBox box-forward"><img src="image/spider/hand/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/spider/hand/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/spider/hand/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/spider/hand/right.jpg" /></div>
-		        <div class="inBox box-top"><img src="image/spider/hand/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/spider/hand/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+		        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 			</div>
 			<div class="role-hand role-hand-right">
-				<div class="inBox box-forward"><img src="image/spider/hand/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/spider/hand/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/spider/hand/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/spider/hand/right.jpg" /></div>
-		        <div class="inBox box-top"><img src="image/spider/hand/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/spider/hand/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+		        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 			</div>
 			<div class="role-footer">
-				<div class="inBox box-forward"><img src="image/spider/footer/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/spider/footer/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/spider/footer/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/spider/footer/right.jpg" /></div>
-		        <!-- <div class="inBox box-top"><img src="image/spider/footer/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/spider/footer/bottom.jpg" /></div>-->
+				<div class="inBox box-forward"><img src="image/blank/footer/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/footer/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/footer/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/footer/right.jpg" /></div>
+		        <!-- <div class="inBox box-top"><img src="image/blank/footer/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/footer/bottom.jpg" /></div>-->
 			</div>
 		</div>
 		<div class="welcome-text">大家好，我是A~</div>
 	</div>
 	<div class="rolebox role-b role-action-run">
 		<div class="role-header">
-			<div class="inBox box-forward"><img src="image/cat/header/forward.jpg" /></div>
-	        <div class="inBox box-back"><img src="image/cat/header/back.jpg" /></div>
-	        <div class="inBox box-left"><img src="image/cat/header/left.jpg" /></div>
-	        <div class="inBox box-right"><img src="image/cat/header/right.jpg" /></div>
-	        <div class="inBox box-top"><img src="image/cat/header/top.jpg" /></div>
-	        <div class="inBox box-bottom"><img src="image/cat/header/bottom.jpg" /></div>
+			<div class="inBox box-forward"><img src="image/blank/header/forward.jpg" /></div>
+	        <div class="inBox box-back"><img src="image/blank/header/back.jpg" /></div>
+	        <div class="inBox box-left"><img src="image/blank/header/left.jpg" /></div>
+	        <div class="inBox box-right"><img src="image/blank/header/right.jpg" /></div>
+	        <div class="inBox box-top"><img src="image/blank/header/top.jpg" /></div>
+	        <div class="inBox box-bottom"><img src="image/blank/header/bottom.jpg" /></div>
 		</div>
 		<div class="body-down">
 			<div class="role-body">
-				<div class="inBox box-forward"><img src="image/cat/body/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/cat/body/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/cat/body/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/cat/body/right.jpg" /></div>
-		        <!-- <div class="inBox box-top"><img src="image/cat/body/top.jpg" /></div> -->
-		        <div class="inBox box-bottom"><img src="image/cat/body/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/body/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/body/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/body/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/body/right.jpg" /></div>
+		        <!-- <div class="inBox box-top"><img src="image/blank/body/top.jpg" /></div> -->
+		        <div class="inBox box-bottom"><img src="image/blank/body/bottom.jpg" /></div>
 			</div>
 			<div class="role-hand role-hand-left">
-				<div class="inBox box-forward"><img src="image/cat/hand/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/cat/hand/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/cat/hand/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/cat/hand/right.jpg" /></div>
-		        <div class="inBox box-top"><img src="image/cat/hand/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/cat/hand/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+		        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 			</div>
 			<div class="role-hand role-hand-right">
-				<div class="inBox box-forward"><img src="image/cat/hand/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/cat/hand/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/cat/hand/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/cat/hand/right.jpg" /></div>
-		        <div class="inBox box-top"><img src="image/cat/hand/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/cat/hand/bottom.jpg" /></div>
+				<div class="inBox box-forward"><img src="image/blank/hand/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/hand/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/hand/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/hand/right.jpg" /></div>
+		        <div class="inBox box-top"><img src="image/blank/hand/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/hand/bottom.jpg" /></div>
 			</div>
 			<div class="role-footer">
-				<div class="inBox box-forward"><img src="image/cat/footer/forward.jpg" /></div>
-		        <div class="inBox box-back"><img src="image/cat/footer/back.jpg" /></div>
-		        <div class="inBox box-left"><img src="image/cat/footer/left.jpg" /></div>
-		        <div class="inBox box-right"><img src="image/cat/footer/right.jpg" /></div>
-		        <!-- <div class="inBox box-top"><img src="image/cat/footer/top.jpg" /></div>
-		        <div class="inBox box-bottom"><img src="image/cat/footer/bottom.jpg" /></div>-->
+				<div class="inBox box-forward"><img src="image/blank/footer/forward.jpg" /></div>
+		        <div class="inBox box-back"><img src="image/blank/footer/back.jpg" /></div>
+		        <div class="inBox box-left"><img src="image/blank/footer/left.jpg" /></div>
+		        <div class="inBox box-right"><img src="image/blank/footer/right.jpg" /></div>
+		        <!-- <div class="inBox box-top"><img src="image/blank/footer/top.jpg" /></div>
+		        <div class="inBox box-bottom"><img src="image/blank/footer/bottom.jpg" /></div>-->
 			</div>
 		</div>
 		<div class="welcome-text">大家好，我是B~</div>
 	</div>
+    <div id="playerDiv">
+        <div class="player-1"></div>
+        <div class="player-2"></div>
+        <div class="player-3"></div>
+        <div class="player-4"></div>
+    </div>
     <div id="codeDiv">
-        <canvas id="canvas2" width="500" height="300" style="width:250px; height:150px;"></canvas>
-        <canvas id="canvas0" width="500" height="300" style="width:250px; height:150px;"></canvas>
-        <canvas id="canvas1" width="500" height="300" style="width:250px; height:150px;"></canvas>
-        <canvas id="canvas3" width="500" height="300" style="width:250px; height:150px;"></canvas>
+        <canvas id="canvas2" width="500" height="300" style="width:210px; height:120px;"></canvas>
+        <canvas id="canvas0" width="500" height="300" style="width:210px; height:120px;"></canvas>
+        <canvas id="canvas1" width="500" height="300" style="width:210px; height:120px;"></canvas>
+        <canvas id="canvas3" width="500" height="300" style="width:210px; height:120px;"></canvas>
     </div>
     <div id="modeDiv" style="display: none">
-        <span onclick="dongganGame();ws.send('donggan');" style="position:absolute; top:400px; left: 300px; width: 100px; height: 40px; display: block">动感模式</span>
-        <span onclick="maibaGame();ws.send('maiba');" style="position:absolute; top:500px; left: 300px; width: 100px; height: 40px; display: block">麦霸模式</span>
+        <div class="mode-1" onclick="dongganGame();ws.send('donggan');"></div>
+        <div class="mode-2" onclick="maibaGame();ws.send('maiba');"></div>
     </div>
 </div>
 
