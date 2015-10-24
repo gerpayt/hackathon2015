@@ -112,7 +112,6 @@ body { -webkit-user-select: none; background: #333;}
 }
 
 .playerA.role-action-run {
-    -webkit-transform: rotateX(-10deg) rotateY(-8deg);
     -webkit-animation: boxRotate 3s linear 0 /*infinite alternate*/;
 }
 .rolebox {
@@ -128,14 +127,38 @@ body { -webkit-user-select: none; background: #333;}
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateX(-10deg);
 }
+.rolebox.role-a {
+    top: 120px;
+    left: 50%;
+    margin-left: -150px;
+    height: 400px;
+    width: 300px;
+    /*border: 1px solid #FFF;*/
+    -webkit-perspective: 9000px;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(20deg) scale3d(0.8,0.8,0.8);
+
+}
+.rolebox.role-b {
+    top: 128px;
+    left: 50%;
+    margin-left: 150px;
+    height: 400px;
+    width: 300px;
+    /*border: 1px solid #FFF;*/
+    -webkit-perspective: 9000px;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(-20deg) scale3d(0.8,0.8,0.8);
+}
 
 .rolebox.role-action-run {
-    -webkit-transform: rotateX(-10deg) rotateY(-8deg);
     -webkit-animation: boxRotate 3s linear 0 /*infinite alternate*/;
 }
 .role-action-run {}
 .role-action-run .body-down {
-    -webkit-transform: rotateY(30deg);
+    /*-webkit-transform: rotateY(30deg);*/
     -webkit-transform-style: preserve-3d;
 }
 .role-action-run  .role-header {
@@ -197,6 +220,7 @@ body { -webkit-user-select: none; background: #333;}
 .role-header {
     /*-webkit-transform: rotateY(8deg);*/
     -webkit-transform-style: preserve-3d;
+    /*-webkit-animation: playerRun 0.8s linear 0.8s infinite alternate;*/
 }
 .role-body {
     margin-top: 140px;

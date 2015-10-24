@@ -1,3 +1,159 @@
+
+var log = [];
+log[0] = document.getElementById("log0");
+log[1] = document.getElementById("log1");
+var canvas = [];
+canvas[0] = document.getElementById("canvas0");
+canvas[1] = document.getElementById("canvas1");
+var ctx = [];
+ctx[0] = canvas[0].getContext("2d");
+ctx[1] = canvas[1].getContext("2d");
+var posState=[];
+posState[0]=[-1, -1];
+posState[1]=[-1, -1];
+var posCenter=[[125, 140], [375, 140]];
+
+var user = [];  //user的socketID
+user[0] = 0;
+user[1] = 0;
+
+ctx[0].translate(0, 300);
+ctx[0].scale(1, -1);
+ctx[1].translate(0, 300);
+ctx[1].scale(1, -1);
+
+
+function makeCode()
+{
+    var codeMaker = [];
+    codeMaker[1] = [2,4,5];
+    codeMaker[2] = [1,3,4,5,6];
+    codeMaker[3] = [2,5,6];
+    codeMaker[4] = [1,2,5,7,8];
+    codeMaker[5] = [1,2,3,4,5,6,7,8,9];
+    codeMaker[6] = [2,3,5,8,9];
+    codeMaker[7] = [4,5,8];
+    codeMaker[8] = [4,5,6,7,9];
+    codeMaker[9] = [5,6,8];
+
+    var numArr = [1,2,3,4,5,6,7,8,9];
+    var num = Math.floor(Math.random() * 9) + 1;
+    var code = '' + num;
+    var count = Math.floor(Math.random() * 2) + 4;  //4~5
+    for (var i = 1; i < count; i++)
+    {
+        numArr.splice(numArr.indexOf(num),1);
+        var tempArr = [];
+        for (var j = 0; j < codeMaker[num].length; j++)
+        {
+            var temp = codeMaker[num][j];
+            if (numArr.indexOf(temp) > -1)
+            {
+                tempArr.push(temp);
+            }
+        }
+        if (!tempArr.length)
+        {
+            break;
+        }
+        num = tempArr[Math.floor(Math.random() * tempArr.length)];
+        code += num;
+    }
+    console.log(code);
+    return code;
+}
+var code = [];
+code[0] = makeCode();
+code[1] = makeCode();
+while (code[0] == code[1])
+{
+    code[1] = makeCode();
+}
+
+var numPos = [];
+numPos[1] = [170, 230];
+numPos[2] = [250, 230];
+numPos[3] = [330, 230];
+numPos[4] = [170, 150];
+numPos[5] = [250, 150];
+numPos[6] = [330, 150];
+numPos[7] = [170, 70];
+numPos[8] = [250, 70];
+numPos[9] = [330, 70];
+
+function cv_init(k)
+{
+    ctx[k].beginPath();
+    drawCircle("#333333", 170, 70, 25, k);
+    drawCircle("#CCCCCC", 170, 70, 10, k);
+    drawCircle("#333333", 250, 70, 25, k);
+    drawCircle("#CCCCCC", 250, 70, 10, k);
+    drawCircle("#333333", 330, 70, 25, k);
+    drawCircle("#CCCCCC", 330, 70, 10, k);
+    drawCircle("#333333", 170, 150, 25, k);
+    drawCircle("#CCCCCC", 170, 150, 10, k);
+    drawCircle("#333333", 250, 150, 25, k);
+    drawCircle("#CCCCCC", 250, 150, 10, k);
+    drawCircle("#333333", 330, 150, 25, k);
+    drawCircle("#CCCCCC", 330, 150, 10, k);
+    drawCircle("#333333", 170, 230, 25, k);
+    drawCircle("#CCCCCC", 170, 230, 10, k);
+    drawCircle("#333333", 250, 230, 25, k);
+    drawCircle("#CCCCCC", 250, 230, 10, k);
+    drawCircle("#333333", 330, 230, 25, k);
+    drawCircle("#CCCCCC", 330, 230, 10, k);
+
+    var codeArr = code[k].split('');
+    for (var i = 1; i < codeArr.length; i++)
+    {
+        drawLine("rgba(255,255,0,.8)", numPos[codeArr[i - 1]][0], numPos[codeArr[i - 1]][1], numPos[codeArr[i]][0], numPos[codeArr[i]][1], 18, k);
+    }
+
+}
+function cv_clear(k)
+{
+    ctx[k].clearRect(0, 0, canvas[k].width, canvas[k].height);
+    ctx[k].beginPath();
+    drawCircle("#3399CC", 125, 140, 90, k);
+    drawCircle("#FFFFFF", 125, 140, 42, k);
+    drawCircle("#3399CC", 125, 140, 38, k);
+    drawCircle("#C24747", 375, 140, 90, k);
+    drawCircle("#FFFFFF", 375, 140, 42, k);
+    drawCircle("#C24747", 375, 140, 38, k);
+}
+function drawCircle(color, x, y, r, k)
+{
+    ctx[k].beginPath();
+    ctx[k].fillStyle = color;
+    ctx[k].arc(x, y, r, 0, Math.PI * 2, true);
+    ctx[k].fill();
+}
+function drawLine(color, x1, y1, x2, y2, w, k)
+{
+    ctx[k].beginPath();
+    ctx[k].lineCap = 'round';
+    ctx[k].strokeStyle = color;
+    ctx[k].lineWidth = w;
+    ctx[k].moveTo(x1, y1);
+    ctx[k].lineTo(x2, y2);
+    ctx[k].fill();
+    ctx[k].stroke();
+}
+if (deviceId == 1) {
+
+    cv_init(0);
+    cv_init(1);
+}
+
+
+
+
+
+
+
+
+
+
 var ws = new ScreenPlayWS(_('log'), deviceId);
 var wa = new WAudio('sound/music.mp3', 0.5);
 var sounds = [];
@@ -584,7 +740,7 @@ var continueMovie = function()
     var roleBox2 = roleBox.cloneNode(true);
     [].slice.call(roleBox2.querySelectorAll("img")).forEach(function(item, index){
         var attr = item.getAttribute("src");
-        item.setAttribute("src", attr.replace("spider", "Glawind"));
+        item.setAttribute("src", attr.replace("a", "Glawind"));
     });
     // 修改文字信息
     var text = roleBox2.querySelector(".welcome-text");
@@ -610,6 +766,7 @@ var finishMovie = function()
 {
     document.querySelector("#beforeGame").style.cssText = "-webkit-transition: all 1s; left: -9999px;";
     wa.play();
+//    document.querySelector("#beforeGame").remove();
 }
 if (mode == 'single')
 {

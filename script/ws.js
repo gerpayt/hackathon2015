@@ -141,6 +141,11 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 		// shake,1
 		this.onSocketShake(data[2]);
 	}
+	else if (data[1] == 'code')
+	{
+		// shake,1
+		this.onSocketCode(data[2]);
+	}
 }
 //收到user信号
 ScreenPlayWS.prototype.onSocketUser = function(userArr)
@@ -231,6 +236,44 @@ ScreenPlayWS.prototype.onSocketShake = function(rid)
 	{
 		finishMovie();  //play
 	}
+}
+//收到shake信号
+ScreenPlayWS.prototype.onSocketCode = function(mycode)
+{
+    console.log(mycode);
+
+    if ((user[0] == 0) && ((code[0] == mycode) || (code[0].split('').reverse().join('') == mycode)))
+    {
+        ws.send('connect,0,' + data[0]);
+        cv_clear(0);
+        user[0] = data[0];
+        if (user[1] != 0)
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+    else if ((user[1] == 0) && ((code[1] == mycode) || (code[1].split('').reverse().join('') == mycode)))
+    {
+        ws.send('connect,1,' + data[0]);
+        cv_clear(1);
+        user[1] = data[0];
+        if (user[0] != 0)
+        {
+            finishMovie();
+//            runTheGame();
+        }
+    }
+//
+//    console.log(rid);
+//	if (rid == 2)
+//	{
+//		continueMovie();  //play
+//	}
+//	else
+//	{
+//		finishMovie();  //play
+//	}
 }
 //发送方向给手柄
 ScreenPlayWS.prototype.sendTarget = function(orient)

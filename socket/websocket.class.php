@@ -81,7 +81,7 @@
 			$this->log("> " . substr('' . $client, 13) . ' ' . $msg);
 			// $this->log("> " . $msg);
 			$msg = $this->frame($msg);
-			socket_write($client, $msg, strlen($msg));
+			@socket_write($client, $msg, strlen($msg));
 			$this->log("! " . strlen($msg));
 		}
 		function connect($socket)

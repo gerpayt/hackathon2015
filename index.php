@@ -26,10 +26,10 @@
 </head>
 
 <body>
-	<div class="garden">
-		<div class="ball"></div>
-	</div>
-
+<canvas id="canvas" width="300" height="500"></canvas>
+<div class="garden">
+        <div class="ball"></div>
+    </div>
     <div id="log" >
     </div>
     <div id="log2" >
@@ -39,19 +39,21 @@
     <div id="main" class="main room_main">
     </div>
 </body>
+<script>
+    <?php
+        $id = isset($_GET['id']) ? $_GET['id'] : 1;  //1为A 2为B
+        include('socket/config.php');
+    ?>
+    var wsHost = '<?php echo $host; ?>';
+    var wsPort = '<?php echo $port; ?>';
 
+    var deviceId = <?php echo $id; ?>;
+</script>
 <script type="text/javascript" src="script/func.js?r=<?php echo rand(); ?>"></script>
 <script type="text/javascript" src="script/main.js?r=<?php echo rand(); ?>"></script>
+<script type="text/javascript" src="script/start.js?r=<?php echo rand(); ?>"></script>
 <script type="text/javascript" src="script/ws.js?r=<?php echo rand(); ?>"></script>
 <script>
-<?php
-	$id = isset($_GET['id']) ? $_GET['id'] : 1;  //1为A 2为B
-	include('socket/config.php');
-?>
-	var wsHost = '<?php echo $host; ?>';
-	var wsPort = '<?php echo $port; ?>';
-
-	var deviceId = <?php echo $id; ?>;
 	var ws = new HandlePlayWS(_('log'), deviceId);
 
 	var ball   = document.querySelector('.ball');
