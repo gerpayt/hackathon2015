@@ -422,7 +422,7 @@ var setFallPos = function(x, y)
 var checkHit = function()
 {
     var scale = fallTime*ballv / Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2));
-    var isHitOk = (scale > 1 && scale < 1.3);
+    var isHitOk = (scale > 1 && scale < 1.5);
     return isHitOk;
 }
 

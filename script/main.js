@@ -277,7 +277,7 @@ DMotion.prototype.getOrient = function(lastChange)
 						this.vjArr.shift();
 						this.vkArr.shift();
 						this.vArr.shift();
-						if (this.vArr[1] > 1200 && this.vArr[0] < this.vArr[1] && this.vArr[1] > this.vArr[2]) // 找到最高峰
+						if (this.vArr[1] > 1000 && this.vArr[0] < this.vArr[1] && this.vArr[1] > this.vArr[2]) // 找到最高峰
 						{
 							//有效击打
 							_('main').innerHTML = '<br>击' + parseInt(this.viArr[1]) +' ' + parseInt(this.vjArr[1]) +' ' + parseInt(this.vkArr[1]) + _('main').innerHTML;
