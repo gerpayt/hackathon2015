@@ -244,8 +244,9 @@ ScreenPlayWS.prototype.onSocketCode = function(mycode)
 
     if ((user[0] == 0) && ((code[0] == mycode) || (code[0].split('').reverse().join('') == mycode)))
     {
+        continueMovie(1);
         ws.send('connect,0,' + data[0]);
-        cv_clear(0);
+//        cv_clear(0);
         user[0] = data[0];
         if (user[1] || user[2] || user[3])
         {
@@ -255,8 +256,9 @@ ScreenPlayWS.prototype.onSocketCode = function(mycode)
     }
     else if ((user[1] == 0) && ((code[1] == mycode) || (code[1].split('').reverse().join('') == mycode)))
     {
+        continueMovie(2);
         ws.send('connect,1,' + data[0]);
-        cv_clear(1);
+//        cv_clear(1);
         user[1] = data[0];
         if (user[0] || user[2] || user[3])
         {
@@ -267,7 +269,7 @@ ScreenPlayWS.prototype.onSocketCode = function(mycode)
     else if ((user[2] == 0) && ((code[2] == mycode) || (code[2].split('').reverse().join('') == mycode)))
     {
         ws.send('connect,2,' + data[0]);
-        cv_clear(2);
+//        cv_clear(2);
         user[2] = data[0];
         if (user[0] || user[1] || user[3])
         {
@@ -278,7 +280,7 @@ ScreenPlayWS.prototype.onSocketCode = function(mycode)
     else if ((user[3] == 0) && ((code[3] == mycode) || (code[3].split('').reverse().join('') == mycode)))
     {
         ws.send('connect,3,' + data[0]);
-        cv_clear(3);
+//        cv_clear(3);
         user[3] = data[0];
         if (user[0] || user[1] || user[2])
         {

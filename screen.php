@@ -72,9 +72,9 @@
 
 <div id="info">
 	<div class="scores">
-		<span class="avatar avatar-him"><img src="image/A.jpg" /></span>
+		<span class="avatar avatar-him"><img src="image/Glawind/header/forward.jpg" /></span>
 		<span id="score">0:0</span>
-		<span class="avatar avatar-me"><img src="image/B.jpg" /></span>
+		<span class="avatar avatar-me"><img src="image/cf/header/forward.jpg" /></span>
 	</div>
 </div> 
 
@@ -177,11 +177,16 @@
 		</div>
 		<div class="welcome-text">大家好，我是B~</div>
 	</div>
-    <canvas id="canvas2" width="500" height="300" style="width:250px; height:150px;"></canvas>
-    <canvas id="canvas0" width="500" height="300" style="width:250px; height:150px;"></canvas>
-    <canvas id="canvas1" width="500" height="300" style="width:250px; height:150px;"></canvas>
-    <canvas id="canvas3" width="500" height="300" style="width:250px; height:150px;"></canvas>
-
+    <div id="codeDiv">
+        <canvas id="canvas2" width="500" height="300" style="width:250px; height:150px;"></canvas>
+        <canvas id="canvas0" width="500" height="300" style="width:250px; height:150px;"></canvas>
+        <canvas id="canvas1" width="500" height="300" style="width:250px; height:150px;"></canvas>
+        <canvas id="canvas3" width="500" height="300" style="width:250px; height:150px;"></canvas>
+    </div>
+    <div id="modeDiv" style="display: none">
+        <span onclick="dongganGame()" style="position:absolute; top:400px; left: 300px; width: 100px; height: 40px; display: block">动感模式</span>
+        <span onclick="maibaGame()" style="position:absolute; top:500px; left: 300px; width: 100px; height: 40px; display: block">麦霸模式</span>
+    </div>
 </div>
 
 
@@ -211,5 +216,6 @@
 	var mode = '<?php echo $mode; ?>';
 	var debug = <?php echo $debug; ?>;
 </script>
-<script type="text/javascript" src="script/screen.js?r=<?php echo rand(); ?>"></script>
+<script type="text/javascript" src="script/screen_start.js?r=<?php echo rand(); ?>"></script>
+<script src='' id="script1"></script>
 </html>
