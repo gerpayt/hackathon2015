@@ -544,7 +544,7 @@ DMotion.prototype.log2 = function(pos)
             //webparam 通过websocket传输
 
 
-        }, 200);
+        }, 300);
     }
 
     function errorCallback(error) {

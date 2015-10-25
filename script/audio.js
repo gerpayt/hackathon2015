@@ -395,10 +395,10 @@ Record.prototype = {
             // console.log(array[10]);
             //TODO random代替
             if (that.role == 1) {
-                console.log(soundmeter_level1);
+                // console.log(soundmeter_level1);
                 var param = soundmeter_level1;
             } else {
-                console.log(soundmeter_level2);
+                // console.log(soundmeter_level2);
                 var param = soundmeter_level2;
             }
             //parseInt(100*Math.random());
@@ -408,7 +408,7 @@ Record.prototype = {
             }else{
                 param = 1
             }
-            console.log(array[100]);
+            // console.log(array[100]);
             if(that.coor.scroes.length<50){
 //                that.coor.scroes.push(array[100]);
                 that.coor.scroes.push(parseInt(array[100]*param));

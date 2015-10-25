@@ -24,7 +24,7 @@ document.getElementById("recordBtn").onclick = function() {
         ws.send('volume,'+deviceId+',' + param);
           console.log('volume,'+deviceId+',' + param);
 
-      }, 200);
+      }, 300);
     }
 
     function errorCallback(error) {
