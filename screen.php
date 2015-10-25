@@ -11,6 +11,18 @@
 <div id="box">
 	<div id="container" class="container" style="height: 1200px; width: 600px;-webkit-transform-style: preserve-3d;">
 	    <img id="outer" src="image/bg.jpg" />
+
+	    <div id="graphicsWrapperID" class="graphicsWrapper" style="display:none">
+			<div id="visualizer_wrapper" style="float:left;">
+		        <canvas id='canvas' width="600" height="600" style=" position: relative; top: -150px;"></canvas>
+		    </div>
+		    <div id="timevisualizer_wrapper" style="float:left;">
+		        <canvas id='timecanvas2' class="timecanvas" width="600" height="300" style=" position: relative; top: -75px;"></canvas>
+		        <canvas id='timecanvas3' class="timecanvas" width="600" height="300" style=" position: relative; top: -200px;"></canvas>
+		        <canvas id='timecanvas1' class="timecanvas" width="600" height="300" style=" position: relative; top: -350px;"></canvas>
+		    </div>
+		</div>
+
 	    <div id="shadow" class="ball shadow"></div>
 	    <div id="ad" class="ad">
 			<div id="ad1" class="ad1"></div>
@@ -103,7 +115,7 @@
              歌词显示
         </div>
     </div>
-
+<!-- 
     <div id="graphicsWrapperID" class="graphicsWrapper" style="display:none">
 
 		<div id="visualizer_wrapper">
@@ -114,7 +126,7 @@
 	        <canvas id='timecanvas2' class="timecanvas" width="300" height="300"></canvas>
 	        <canvas id='timecanvas3' class="timecanvas" width="300" height="300"></canvas>
 	    </div>
-	</div>
+	</div> -->
 </div>
 
 
