@@ -112,9 +112,16 @@ Selected.prototype = {
             var value = v.replace(pattern, '');
             var t = time.slice(1, -1).split(':');
 
-            result.push([(parseInt(t[0], 10) * 60 + parseFloat(t[1])).toFixed(4),value]);
+            var r = parseFloat(parseInt(t[0], 10) * 60 + parseFloat(t[1])).toFixed(4);
+            var date = (r / 60).toFixed(5);
+            
+            var s = parseInt(t[0]) + (parseFloat(t[1])/60).toFixed(4);
+
+            console.log(s);
+            result.push([r,value]);
+            // result.push([date,value]);
         }
-//        console.log(result)
+        console.log(result);
         return result;
     },
     //显示到Dom
@@ -123,7 +130,9 @@ Selected.prototype = {
         //监听ontimeupdate事件
         that.audio.ontimeupdate = function(e) {
             //遍历所有歌词，看哪句歌词的时间与当然时间吻合
+            console.log(that.lyricArr);
             for (var i = 0, l = that.lyricArr.length; i < l; i++) {
+                console.log(this.currentTime);
                 if (this.currentTime > that.lyricArr[i][0]) {
                     //显示到页面
                     that.lyricContainer.innerHTML = that.lyricArr[i][1];
@@ -163,8 +172,13 @@ var Visualizer = function(option) {
 };
 Visualizer.prototype = {
     ini: function() {
+        var that = this;
         this._prepareAPI();
         this._start();
+        setTimeout(function(){
+            that._audioEnd(that);
+            console.log("end");
+        },102*1000);
     },
     _prepareAPI: function() {
         window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
@@ -218,6 +232,7 @@ Visualizer.prototype = {
         audioBufferSouceNode.onended = function() {
             that._audioEnd(that);
         };
+
         this._drawSpectrum(analyser);         
     },
     _drawSpectrum: function(analyser) {
@@ -236,6 +251,7 @@ Visualizer.prototype = {
         gradient.addColorStop(1, '#0f0');
         gradient.addColorStop(0.5, '#ff0');
         gradient.addColorStop(0, '#f00');
+        
         var drawMeter = function() {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
@@ -321,6 +337,10 @@ Record.prototype = {
     ini: function() {
         this._prepareAPI();
         this._start();
+        setTimeout(function(){
+            that._audioEnd(that);
+             console.log("end2");
+        },102*1000);
     },
     _prepareAPI: function() {
         window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
@@ -384,6 +404,9 @@ Record.prototype = {
         audioBufferSouceNode.onended = function() {
             that._audioEnd(that);
         };
+
+
+
         this._drawSpectrum(analyser); 
     },
     _drawSpectrum: function(analyser) {
@@ -395,10 +418,10 @@ Record.prototype = {
             // console.log(array[10]);
             //TODO random代替
             if (that.role == 1) {
-                console.log(soundmeter_level1);
+                // console.log(soundmeter_level1);
                 var param = soundmeter_level1;
             } else {
-                console.log(soundmeter_level2);
+                // console.log(soundmeter_level2);
                 var param = soundmeter_level2;
             }
             //parseInt(100*Math.random());
@@ -408,7 +431,7 @@ Record.prototype = {
             }else{
                 param = 1
             }
-            console.log(array[100]);
+            // console.log(array[100]);
             if(that.coor.scroes.length<50){
 //                that.coor.scroes.push(array[100]);
                 that.coor.scroes.push(parseInt(array[100]*param));
@@ -432,9 +455,6 @@ Record.prototype = {
         }
        
         this.animationId = requestAnimationFrame(drawMeter);
-
-
-
        
     },
     _audioEnd: function(instance) {
