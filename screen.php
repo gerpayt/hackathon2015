@@ -80,13 +80,44 @@
     </div>
 </div>    
 
-<div id="info">
-	<div class="scores">
+<div id="info" style="display:none">
+	<div id="scoreID" class="scores" style="display:none">
 		<span class="avatar avatar-him"><img src="image/zyt/header/forward.jpg" /></span>
         <span id="score">0:0</span>
 		<span class="avatar avatar-me"><img src="image/cf/header/forward.jpg" /></span>
 	</div>
-</div> 
+
+	<!-- 歌词显示  -->
+	<div id="lyricWrapper" style="display:none">
+        <div id="songPlayer">
+	        <audio controls="" id="audio" src="sound/song.mp3">not supported</audio>
+        </div>
+	    <div id="songPlayer2">
+	        <audio controls="" id="audio2" src="sound/songA.mp3" style="display:none">not supported</audio>
+	    </div>
+	    <div id="songPlayer3">
+	        <audio controls="" id="audio3" src="sound/songB.mp3" style="display:none">not supported</audio>
+	    </div>
+
+        <div id="lyricContainer">
+             歌词显示
+        </div>
+    </div>
+
+    <div id="graphicsWrapperID" class="graphicsWrapper" style="display:none">
+
+		<div id="visualizer_wrapper">
+	        <canvas id='canvas' width="400" height="300"></canvas>
+	    </div>
+	    <div id="timevisualizer_wrapper">
+	        <canvas id='timecanvas1' class="timecanvas" width="300" height="300"></canvas>
+	        <canvas id='timecanvas2' class="timecanvas" width="300" height="300"></canvas>
+	        <canvas id='timecanvas3' class="timecanvas" width="300" height="300"></canvas>
+	    </div>
+	</div>
+</div>
+
+
 
 
 <div class="garden" style="-webkit-transform:scale(0.35); -webkit-transform-origin:0 0; ">
@@ -233,5 +264,4 @@
 	var debug = <?php echo $debug; ?>;
 </script>
 <script type="text/javascript" src="script/screen_start.js?r=<?php echo rand(); ?>"></script>
-<script src='' id="script1"></script>
 </html>

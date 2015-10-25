@@ -238,17 +238,31 @@ var dongganGame = function()
     s.src = 'script/screen_dg.js';
     document.getElementsByTagName('head')[0].appendChild(s);
 //    document.innerHTML += '<script type="text/javascript" src=></script>';
+    _('info').style.display = 'block';
+    _('scoreID').style.display = 'block';
 }
 
 var maibaGame = function()
 {
     document.querySelector("#beforeGame").style.cssText = "-webkit-transition: all 1s; left: -9999px;";
-    wa.play();
+//    wa.play();
 //    document.querySelector("#beforeGame").remove();
-    var s = document.createElement('script');
-    s.src = 'script/screen_mb.js';
-    document.getElementsByTagName('head')[0].appendChild(s);
+    if (_('info').style.display != 'block') {
+        var s = document.createElement('script');
+        s.src = 'script/screen_mb.js';
+        document.getElementsByTagName('head')[0].appendChild(s);
+
+        var s = document.createElement('script');
+        s.src = 'script/audio.js';
+        document.getElementsByTagName('head')[0].appendChild(s);
+        console.log('maibaGame');
 //    document.innerHTML += '<script type="text/javascript" src=></script>';
+        _('info').style.display = 'block';
+        _('lyricWrapper').style.display = 'block';
+        _('graphicsWrapperID').style.display = 'block';
+
+    }
+
 }
 
 

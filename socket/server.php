@@ -21,6 +21,8 @@
                     $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
                 } elseif (substr($msg, 0, 5) == 'maiba') {
                     $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
+                } elseif (substr($msg, 0, 6) == 'volume') {
+                    $this->sendToAllScreen(substr('' . $user->socket, 13) . ',' . $msg);
                 } elseif (substr($msg, 0, 6) == 'screen') {
 					$user->role = 'screen';
 					$user->rid = substr($msg, 7);
