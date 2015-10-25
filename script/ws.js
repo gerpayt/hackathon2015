@@ -159,6 +159,11 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 		// synend,1
 		this.onSocketSynend(data[2]);
 	}
+	else if (data[1] == 'volume')
+	{
+        _('net').style.height = 100*data[2] + 'px';
+        _('net').style.top = 604-100*data[2] + 'px';
+	}
 }
 //收到user信号
 ScreenPlayWS.prototype.onSocketUser = function(userArr)

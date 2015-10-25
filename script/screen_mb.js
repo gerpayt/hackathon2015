@@ -541,7 +541,7 @@ var checkHit = function()
 
 var hit = function()
 {
-    makeSound();
+//    makeSound();
 
     startPosx = ballx;
     startPosy = bally;
@@ -577,7 +577,7 @@ var hit = function()
 }
 var antHit = function(antx, anty, anth, antpx, antpy)
 {
-    makeSound();
+//    makeSound();
 
     ballx = antx;
     bally = anty;
