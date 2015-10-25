@@ -1,23 +1,29 @@
+//wa
+
+
+
+
+
 var canvasCoor = function(option) {
     this.target = option.target;
     this.pic = this.target.getContext('2d');
     this.height = this.target.height;
     this.ratio = 1;
     this.coorArr=option.coorArr;
+    this.color=option.color;
 };
 canvasCoor.prototype = {
-    drawContLine:function(option){
+    drawContLine:function(option){    
         this.pic.beginPath();
         var path = option.path;
-        var color = option.color;
         this.pic.moveTo(path[0][0],path[0][1]);
         var n = 1;
         var len = path.length;
         for(;n<len;n++){
             this.pic.lineTo(path[n][0],path[n][1]);
         }
-        this.pic.lineWidth = 1;
-        this.pic.strokeStyle = color;
+        this.pic.lineWidth = 5;
+        this.pic.strokeStyle = this.color;
         this.pic.stroke();
         this.pic.closePath();
     },
@@ -32,7 +38,7 @@ canvasCoor.prototype = {
             var arry = [scale*(n+1),x];
             a_path.push(arry);
         }
-        this.drawContLine({'path':a_path,'color':option.color});
+        this.drawContLine({'path':a_path,'color':that.color});
     },
     resetCanvas:function(){
         this.pic.clearRect(0,0,800,400);
@@ -75,15 +81,15 @@ Selected.prototype = {
                 setTimeout(function(){
                     new Record({
                         audioSrc:that.audio2.src,
-                        // audioSrcB:that.audio2.src
-                        canvas:document.getElementById("timecanvas2")
+                        canvas:document.getElementById("timecanvas2"),
+                        color:"#f00"
                     }).ini();
                     new Record({
                         audioSrc:that.audio3.src,
-                        canvas:document.getElementById("timecanvas3")
+                        canvas:document.getElementById("timecanvas3"),
+                        color:"#fff"
                     }).ini();
                 },3000);
-
             }
         };
         request.send();
@@ -119,7 +125,6 @@ Selected.prototype = {
                 if (this.currentTime > that.lyricArr[i][0]) {
                     //显示到页面
                     that.lyricContainer.innerHTML = that.lyricArr[i][1];
-          
                 };
             };
         }
@@ -165,7 +170,8 @@ Visualizer.prototype = {
         window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
         navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||  navigator.webkitGetUserMedia || navigator.msGetUserMedia;
         try {
-            this.audioContext = new AudioContext();
+            // this.audioContext = new AudioContext();
+            this.audioContext = AudioContext;
         } catch (e) {
             console.log(e);
         }
@@ -241,7 +247,8 @@ Visualizer.prototype = {
             coorArr.push(that.coor);
             new canvasCoor({
                 target:document.getElementById("timecanvas1"),
-                coorArr:coorArr
+                coorArr:coorArr,
+                color:"#0f0"
             }).init();
             if (that.status === 0) {
                 for (var i = array.length - 1; i >= 0; i--) {
@@ -295,16 +302,16 @@ Visualizer.prototype = {
 
 
 //录音频谱
-//样本图谱
 var Record = function(option) {
     this.audioSrc = option.audioSrc;
     this.canvas = option.canvas;
     this.audioContext = null;
     this.source = null; 
+    this.color = option.color;
     this.coor={
         scroes:[],
         params:[],
-        color:"#0f0"
+        color:option.color
     };
 };
 Record.prototype = {
@@ -342,9 +349,19 @@ Record.prototype = {
     _visualize:function(audioContext, buffer){
         var audioBufferSouceNode = audioContext.createBufferSource();
         var analyser = audioContext.createAnalyser();
+        
+        var panner = audioContext.createPanner();
+        var volume = audioContext.createGain();
+        
+        var gainNode = audioContext.createGain();
+        gainNode.gain.value = 0;
+
         var that = this;
+
         audioBufferSouceNode.connect(analyser);
-        analyser.connect(audioContext.destination);
+        analyser.connect(gainNode); 
+        gainNode.connect(audioContext.destination);
+
         audioBufferSouceNode.buffer = buffer;
         if (!audioBufferSouceNode.start) {
             audioBufferSouceNode.start = audioBufferSouceNode.noteOn;
@@ -357,7 +374,7 @@ Record.prototype = {
             this.source.stop(0);
         }
         // TODO
-        // audioBufferSouceNode.start(0);
+        audioBufferSouceNode.start(0);
 
         this.status = 1;
         this.source = audioBufferSouceNode;
@@ -381,8 +398,6 @@ Record.prototype = {
             }else if(param>70){
                 param = 100;
             }
-
-
             if(that.coor.scroes.length<50){
                 // that.coor.scroes.push(array[10]);
                 that.coor.scroes.push(parseInt(array[10]*param/100));
@@ -397,7 +412,8 @@ Record.prototype = {
             coorArr.push(that.coor);
             new canvasCoor({
                 target:that.canvas,
-                coorArr:coorArr
+                coorArr:coorArr,
+                color:that.color
             }).init();
             that.animationId = requestAnimationFrame(drawMeter);
         }
