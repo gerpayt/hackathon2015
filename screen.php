@@ -13,8 +13,8 @@
 	    <img id="outer" src="image/bg.jpg" />
 
 	    <div id="graphicsWrapperID" class="graphicsWrapper" style="display:none">
-			<div id="visualizer_wrapper" style="float:left;">
-		        <canvas id='canvas' width="600" height="600" style=" position: relative; top: -150px;"></canvas>
+			<div id="visualizer_wrapper" style="transform: rotateX(180deg);">
+		        <canvas id='canvas' width="600" height="600" style=" position: relative; top: -170px;"></canvas>
 		    </div>
 		    <div id="timevisualizer_wrapper" style="float:left;">
 		        <canvas id='timecanvas2' class="timecanvas" width="600" height="300" style=" position: relative; top: -75px;"></canvas>

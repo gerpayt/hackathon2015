@@ -126,6 +126,7 @@ var player = _('player');
 var ad1 = _('ad1');
 var ad2 = _('ad2');
 var ad3 = _('ad3');
+var graphics = _('graphicsWrapperID');
 
 //每回合不一样的数据
 var ballx = 0;  //球此刻x坐标
@@ -138,7 +139,7 @@ var startPosy = 0;  //球出发点y坐标
 var startPosz = 0;  //球出发点z坐标
 var ballvx = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
 var ballvy = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
-var ballv = 3;  //常数 控制球速
+var ballv = 5;  //常数 控制球速
 var jumpTimes = 0;  //反弹次数
 var fallTime = 0;  //一回合运动时间
 var nowRound = 1; //1为球向对方移动 0为球向己方移动
@@ -627,6 +628,7 @@ var moveCamera = function(x, z)
     ad1.style.webkitTransform = "translateZ(-595px)translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateX(15deg)";
     ad2.style.webkitTransform = "translateY(" + (z+256) + "px)translateX(" + (x*-1-600) + "px)rotateY(90deg)rotateX(15deg)";
     ad3.style.webkitTransform = "translateY(" + (z+255) + "px)translateX(" + (x*-1) + "px)rotateY(-90deg)rotateX(15deg)";
+    graphics.style.webkitTransform = "rotateX(90deg) translateZ(" + (z*-1-299) + "px) translateX(" + (x*-1) + "px)";
 }
 // var beginCamera = function(i) //0-20
 // {
