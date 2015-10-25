@@ -539,3 +539,40 @@ canvas#timecanvas {
     float: left;
     transform: scaleY(0.5);
 }
+
+#end1Div {
+
+}
+
+#award {
+    position: absolute;
+    width: 179px;
+    height: 156px;
+    top: 444px;
+    left: 200px;
+    display: block;
+    z-index: 20;
+    background: url("../image/award.png");
+}
+
+#end1-1 {
+    position: absolute;
+    width: 275px;
+    height: 86px;
+    top: 230px;
+    left: 100px;
+    display: block;
+    z-index: 20;
+    background: url("../image/share.png");
+}
+
+#end1-2 {
+    position: absolute;
+    width: 275px;
+    height: 86px;
+    top: 230px;
+    left: 450px;
+    display: block;
+    z-index: 20;
+    background: url("../image/save.png");
+}

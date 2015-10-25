@@ -144,7 +144,7 @@ var startPosy = 0;  //球出发点y坐标
 var startPosz = 0;  //球出发点z坐标
 var ballvx = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
 var ballvy = 0;  //球x方向的速度 每一回合为常量 vx vy的平方和为v*v
-var ballv = 8;  //常数 控制球速
+var ballv = 5;  //常数 控制球速
 var jumpTimes = 0;  //反弹次数
 var fallTime = 0;  //一回合运动时间
 var nowRound = 1; //1为球向对方移动 0为球向己方移动
@@ -289,6 +289,8 @@ var moveBall = function()
         hit();
     }
 
+//    addNetHeight(1,soundmeter_level2);
+//    addNetHeight(2,soundmeter_level1);
 
     // debug
     if (Math.random() > 0.85)
@@ -402,7 +404,7 @@ var moveBall = function()
     //     handleMoveBall = setTimeout(moveBall, 20);
     // }
 
-    if (fallTime < 800)
+    if (fallTime < 500)
     {
         clearTimeout(handleMoveBall);
         handleMoveBall = setTimeout(moveBall, 20);
@@ -742,4 +744,24 @@ else
     moveCamera(ballx / 3, ballz / 20);
 
     // init();
+}
+
+var endGame = function()
+{
+    _('beforeGame').style.cssText='';
+    _('award').style.display='block';
+    _('end1Div').style.display='block';
+
+}
+
+var endSave = function()
+{
+    _('end1Div').style.display='none';
+
+}
+
+var endShare = function()
+{
+    _('end1Div').style.display='none';
+
 }
