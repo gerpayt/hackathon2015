@@ -283,56 +283,6 @@ var moveBall = function()
         hit();
     }
 
-    if (deviceId == 1) //只有PC一才判断死亡
-    {
-        if (!nowRound && bally < 300 && lastBally > 300) // 玩家二触网
-        {
-            is_del = false;
-            // is_del = checkDie();
-            if (is_del) // 玩家二死了
-            {
-                playerAScore++;
-                showScore(1);
-
-                // //球被拦下
-                // showBallStop();
-
-                //玩家发球
-                ws.end(1);  //websocket
-                beginMapPos();  //map
-                readyToBegin();
-            }
-            else
-            {
-                //网被替换
-                resetNetHeight(2);
-            }
-        }
-        else if (nowRound && bally > 300 && lastBally < 300) // 玩家一触网
-        {
-            is_del = false;
-            // is_del = checkDie();
-            if (is_del) // 玩家二死了
-            {
-                playerAScore++;
-                showScore(1);
-
-                // //球被拦下
-                // showBallStop();
-
-                //玩家发球
-                ws.end(1);  //websocket
-                beginMapPos();  //map
-                readyToBegin();
-            }
-            else
-            {
-                //网被替换
-                resetNetHeight(1);
-            }
-        }
-        lastBally = bally;
-    }
 
     // debug
     if (Math.random() > 0.85)
@@ -342,6 +292,65 @@ var moveBall = function()
     if (Math.random() > 0.85)
     {
         addNetHeight(2, 1);
+    }
+
+
+    if (deviceId == 1) //只有PC一才判断死亡
+    {
+        if (!nowRound && bally < 300 && lastBally > 300) // 玩家二触网
+        {
+            // is_del = false;
+            is_del = checkDie(2);
+            if (is_del) // 玩家二死了
+            {
+                playerAScore++;
+                showScore(1);
+
+                // //球被拦下
+                // showBallStop();
+
+                //玩家发球
+                ws.end(1);  //websocket
+                beginMapPos();  //map
+                readyToBegin();
+                ws.synend(2);  //websocket
+                return;
+            }
+            else
+            {
+                //网被替换
+                resetNetHeight(2);
+            }
+        }
+        else if (nowRound && bally > 300 && lastBally < 300) // 玩家一触网
+        {
+            // is_del = false;
+            is_del = checkDie(1);
+            if (is_del) // 玩家二死了
+            {
+                playerBScore++;
+                showScore(2);
+
+                // //球被拦下
+                // showBallStop();
+
+                //玩家发球
+                ws.end(1);  //websocket
+                beginMapPos();  //map
+                readyToBegin();
+                ws.synend(1);  //websocket
+                return;
+            }
+            else
+            {
+                //网被替换
+                resetNetHeight(1);
+            }
+        }
+        else
+        {
+            lastBally = bally;
+        }
     }
 
     // // // if ((fallTime*ballv > Math.sqrt(Math.pow(fallPosx-startPosx, 2) + Math.pow(fallPosy-startPosy, 2)) * 2) && !nowRound)
@@ -389,12 +398,25 @@ var moveBall = function()
     //     handleMoveBall = setTimeout(moveBall, 20);
     // }
 
-    if (fallTime < 2000)
+    if (fallTime < 800)
     {
         clearTimeout(handleMoveBall);
         handleMoveBall = setTimeout(moveBall, 20);
     }
 }
+
+
+var synEndGame = function()
+{
+    clearTimeout(handleMoveBall);
+    //玩家发球
+    ws.end(1);  //websocket
+    // beginMapPos();  //map
+    // readyToBegin();
+}
+
+
+
 
 var handleMoveBall = null;
 
@@ -422,6 +444,9 @@ var readyToBegin = function()  //准备发球
 
     resetNetHeight(1);
     resetNetHeight(2);
+
+    // clearTimeout(handleMoveBall);
+    // handleMoveBall = setTimeout(moveBall, 20);
 }
 var throwBall = function(t)  //抛起球
 {
@@ -642,6 +667,17 @@ var resetNetHeight = function(player)
         nowNet2Height = y;
         net_mb2.style.display = 'none';
         net_mb1.style.display = 'block';
+    }
+}
+var checkDie = function(player)
+{
+    if (player == 1) //检查玩家一
+    {
+        return Math.random() < nowNet1Height / 200.0;
+    }
+    else //检查玩家二
+    {
+        return Math.random() < nowNet2Height / 200.0;
     }
 }
 

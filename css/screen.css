@@ -413,7 +413,7 @@ body { -webkit-user-select: none; background: #333;}
 .viewer3 {position: absolute; top:600px; left: 2px; opacity: 0.85; height: 400px; width: 1800px; background:url('../image/viewer.png') repeat-x; -webkit-transform: translateY(-69px)translateZ(-100px)translateX(-129px)rotateY(-90deg)rotateX(35deg);}
 
 /*#bg { height: 800px; width: 400px; margin:200px 100px; position: absolute; border:1px solid green; box-shadow: 2px 2px 2px #CCC;}*/
-.ball { position: absolute; left:295px; top: 595px; width: 10px; height:10px; border-radius: 20px; border:1px solid yellow; background:rgb(253, 253, 182); -webkit-box-shadow: 0 3 5px #000;
+.ball { position: absolute; left:295px; top: 595px; width: 10px; height:10px; border-radius: 20px; border:1px solid yellow; -webkit-box-shadow: 0 3 5px #000;
 }
 .shadow { border:1px solid #222; background:#111; -webkit-box-shadow: 0 0 5px #000, 0 0 10px #000; opacity: 0.6;}
 .player { position: absolute; left:290px; top: 590px; width: 20px; height:20px; border-radius: 40px; border:1px solid red; background:rgb(253, 22, 22); -webkit-box-shadow: 0 0 5px #000, 0 0 10px #000; opacity: 0.6;
