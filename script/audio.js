@@ -130,9 +130,9 @@ Selected.prototype = {
         //监听ontimeupdate事件
         that.audio.ontimeupdate = function(e) {
             //遍历所有歌词，看哪句歌词的时间与当然时间吻合
-            console.log(that.lyricArr);
+            //console.log(that.lyricArr);
             for (var i = 0, l = that.lyricArr.length; i < l; i++) {
-                console.log(this.currentTime);
+                //console.log(this.currentTime);
                 if (this.currentTime > that.lyricArr[i][0]) {
                     //显示到页面
                     that.lyricContainer.innerHTML = that.lyricArr[i][1];
@@ -178,6 +178,7 @@ Visualizer.prototype = {
         setTimeout(function(){
             that._audioEnd(that);
             console.log("end");
+            endGame();
         },102*1000);
     },
     _prepareAPI: function() {
@@ -214,16 +215,16 @@ Visualizer.prototype = {
         audioBufferSouceNode.connect(analyser);
         analyser.connect(audioContext.destination);
         audioBufferSouceNode.buffer = buffer;
+
         if (!audioBufferSouceNode.start) {
             audioBufferSouceNode.start = audioBufferSouceNode.noteOn;
             audioBufferSouceNode.stop = audioBufferSouceNode.noteOff;
         };
+        this.source = audioBufferSouceNode;
         if (this.animationId !== null) {
             cancelAnimationFrame(this.animationId);
         }
-        if (this.source !== null) {
-            this.source.stop(0);
-        }
+
         
         audioBufferSouceNode.start(0);
 
@@ -304,6 +305,11 @@ Visualizer.prototype = {
         this.animationId = requestAnimationFrame(drawMeter);
     },
     _audioEnd: function(instance) {
+        if(this.source){
+            this.source.stop(0);
+        }
+
+
         if (this.forceStop) {
             this.forceStop = false;
             this.status = 1;
@@ -337,6 +343,7 @@ Record.prototype = {
     ini: function() {
         this._prepareAPI();
         this._start();
+        var that = this;
         setTimeout(function(){
             that._audioEnd(that);
              console.log("end2");
@@ -371,6 +378,8 @@ Record.prototype = {
     },
     _visualize:function(audioContext, buffer){
         var audioBufferSouceNode = audioContext.createBufferSource();
+
+
         var analyser = audioContext.createAnalyser();
         
         var panner = audioContext.createPanner();
@@ -386,6 +395,8 @@ Record.prototype = {
         gainNode.connect(audioContext.destination);
 
         audioBufferSouceNode.buffer = buffer;
+
+
         if (!audioBufferSouceNode.start) {
             audioBufferSouceNode.start = audioBufferSouceNode.noteOn;
             audioBufferSouceNode.stop = audioBufferSouceNode.noteOff;
@@ -458,6 +469,7 @@ Record.prototype = {
        
     },
     _audioEnd: function(instance) {
+
         if (this.forceStop) {
             this.forceStop = false;
             this.status = 1;

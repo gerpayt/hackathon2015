@@ -751,6 +751,8 @@ var endGame = function()
     _('beforeGame').style.cssText='';
     _('award').style.display='block';
     _('end1Div').style.display='block';
+    _('modeDiv').style.display='none';
+    _('info').style.display='none';
 
 }
 
