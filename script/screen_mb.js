@@ -1,3 +1,8 @@
+
+var soundmeter_level1 = 0;
+var soundmeter_level2 = 0;
+
+
 document.querySelectorAll(".role-racket img")[0].src = 'image/mic.png';
 document.querySelectorAll(".role-racket img")[1].src = 'image/mic.png';
 
