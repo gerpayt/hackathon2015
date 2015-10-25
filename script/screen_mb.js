@@ -289,6 +289,8 @@ var moveBall = function()
         hit();
     }
 
+//    addNetHeight(1,soundmeter_level2);
+//    addNetHeight(2,soundmeter_level1);
 
     // debug
     if (Math.random() > 0.85)
@@ -742,4 +744,24 @@ else
     moveCamera(ballx / 3, ballz / 20);
 
     // init();
+}
+
+var endGame = function()
+{
+    _('beforeGame').style.cssText='';
+    _('award').style.display='block';
+    _('end1Div').style.display='block';
+
+}
+
+var endSave = function()
+{
+    _('end1Div').style.display='none';
+
+}
+
+var endShare = function()
+{
+    _('end1Div').style.display='none';
+
 }

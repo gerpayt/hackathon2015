@@ -246,6 +246,13 @@
         <div class="mode-1" onclick="dongganGame();ws.send('donggan');"></div>
         <div class="mode-2" onclick="maibaGame();ws.send('maiba');"></div>
     </div>
+
+    <div id="award" style="display: none"></div>
+    <div id="end1Div" style="display: none">
+        <div id="end1-1" onclick="endShare();"></div>
+        <div id="end1-2" onclick="endSave();"></div>
+    </div>
+
 </div>
 
 
