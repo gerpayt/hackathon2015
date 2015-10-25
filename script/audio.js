@@ -165,7 +165,7 @@ Visualizer.prototype = {
         window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
         navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||  navigator.webkitGetUserMedia || navigator.msGetUserMedia;
         try {
-            this.audioContext = new AudioContext();
+            this.audioContext =AudioContext|| new AudioContext();
         } catch (e) {
             console.log(e);
         }
