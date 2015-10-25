@@ -161,8 +161,14 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 	}
 	else if (data[1] == 'volume')
 	{
-        _('net').style.height = 100*data[2] + 'px';
-        _('net').style.top = 604-100*data[2] + 'px';
+        if(data[2] == 1){
+            soundmeter_level1 = data[3];
+        } else {
+            soundmeter_level2 = data[3];
+        }
+//        console.log(soundmeter_level, data[3]);
+//        _('net').style.height = 100*data[2] + 'px';
+//        _('net').style.top = 604-100*data[2] + 'px';
 	}
 }
 //收到user信号
@@ -401,6 +407,12 @@ HandlePlayWS.prototype.onDongganGame = function() {
 HandlePlayWS.prototype.onMaibaGame = function() {
     var s = document.createElement('script');
     s.src = 'script/main_mb.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+    var s = document.createElement('script');
+    s.src = 'script/adapter.js';
+    document.getElementsByTagName('head')[0].appendChild(s);
+    var s = document.createElement('script');
+    s.src = 'script/soundmeter.js';
     document.getElementsByTagName('head')[0].appendChild(s);
     _('canvas').remove();
 }

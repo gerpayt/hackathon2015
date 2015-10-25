@@ -34,7 +34,7 @@ canvasCoor.prototype = {
         var len = scroes.length;
         var a_path = [];
         for(var n=0;n<len;n++){
-            var x = that.height - (scroes[n]-100)*that.ratio;
+            var x = that.height - (scroes[n])*that.ratio;
             var arry = [scale*(n+1),x];
             a_path.push(arry);
         }
@@ -69,7 +69,7 @@ Selected.prototype = {
         request.responseType = 'text';
         request.onload = function() {
             var lyric = request.response;
-            console.log(lyric);
+//            console.log(lyric);
             that.lyricArr = that.parseLyric(lyric);
             that.lyricToDom();
             that.audio.volume = 0;
@@ -82,12 +82,14 @@ Selected.prototype = {
                     new Record({
                         audioSrc:that.audio2.src,
                         canvas:document.getElementById("timecanvas2"),
-                        color:"#f00"
+                        color:"#f00",
+                        role:1
                     }).ini();
                     new Record({
                         audioSrc:that.audio3.src,
                         canvas:document.getElementById("timecanvas3"),
-                        color:"#fff"
+                        color:"#fff",
+                        role:2
                     }).ini();
                 },3000);
             }
@@ -110,9 +112,9 @@ Selected.prototype = {
             var value = v.replace(pattern, '');
             var t = time.slice(1, -1).split(':');
 
-            result.push([(parseInt(t[0], 10) * 60 + parseFloat(t[1])).toFixed(2),value]);                    
+            result.push([(parseInt(t[0], 10) * 60 + parseFloat(t[1])).toFixed(4),value]);
         }
-        console.log(result)
+//        console.log(result)
         return result;
     },
     //显示到Dom
@@ -238,10 +240,10 @@ Visualizer.prototype = {
             var array = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(array);
             if(that.coor.scroes.length<50){
-                that.coor.scroes.push(array[10]);
+                that.coor.scroes.push(array[100]);
             }else{
                 that.coor.scroes.shift();
-                that.coor.scroes.push(array[10]);
+                that.coor.scroes.push(array[100]);
             }
             var coorArr = [];
             coorArr.push(that.coor);
@@ -306,7 +308,8 @@ var Record = function(option) {
     this.audioSrc = option.audioSrc;
     this.canvas = option.canvas;
     this.audioContext = null;
-    this.source = null; 
+    this.source = null;
+    this.role = option.role;
     this.color = option.color;
     this.coor={
         scroes:[],
@@ -325,7 +328,7 @@ Record.prototype = {
         window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame;
         navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia ||  navigator.webkitGetUserMedia || navigator.msGetUserMedia;
         try {
-            this.audioContext = new AudioContext();
+            this.audioContext = AudioContext || new AudioContext();
         } catch (e) {
             console.log(e);
         }
@@ -391,22 +394,32 @@ Record.prototype = {
             
             // console.log(array[10]);
             //TODO random代替
-            var param = parseInt(100*Math.random());
-
-            if(param<30){
-                param = 0;
-            }else if(param>70){
-                param = 100;
+            if (that.role == 1) {
+                console.log(soundmeter_level1);
+                var param = soundmeter_level1;
+            } else {
+                console.log(soundmeter_level2);
+                var param = soundmeter_level2;
             }
+            //parseInt(100*Math.random());
+
+            if(param<0.1){
+                param = 0;
+            }else{
+                param = 1
+            }
+            console.log(array[100]);
             if(that.coor.scroes.length<50){
-                // that.coor.scroes.push(array[10]);
-                that.coor.scroes.push(parseInt(array[10]*param/100));
+//                that.coor.scroes.push(array[100]);
+                that.coor.scroes.push(parseInt(array[100]*param));
 
             }else{
                 that.coor.scroes.shift();
-                // that.coor.scroes.push(array[10]);
-                that.coor.scroes.push(parseInt(array[10]*param/100));
+//                that.coor.scroes.push(array[100]);
+                that.coor.scroes.push(parseInt(array[100]*param));
+
             }
+
 
             var coorArr = [];
             coorArr.push(that.coor);

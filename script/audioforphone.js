@@ -19,10 +19,11 @@ document.getElementById("recordBtn").onclick = function() {
       soundMeter.connectToSource(stream);
 
       setInterval(function() {
-        var param = soundMeter.instant.toFixed(2)
+        var param = soundMeter.instant.toFixed(4)
         //webparam 通过websocket传输
+        ws.send('volume,'+deviceId+',' + param);
+          console.log('volume,'+deviceId+',' + param);
 
-        
       }, 200);
     }
 
