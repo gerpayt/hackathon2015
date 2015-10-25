@@ -306,14 +306,13 @@ var moveBall = function()
                 playerAScore++;
                 showScore(1);
 
-                // //球被拦下
-                // showBallStop();
+                //球被拦下
+                bally = lastBally;
+                stopBall(ballz);
 
                 //玩家发球
-                ws.end(1);  //websocket
-                beginMapPos();  //map
-                readyToBegin();
                 ws.synend(2);  //websocket
+                ws.end(1);  //websocket
                 return;
             }
             else
@@ -331,14 +330,13 @@ var moveBall = function()
                 playerBScore++;
                 showScore(2);
 
-                // //球被拦下
-                // showBallStop();
+                //球被拦下
+                bally = lastBally;
+                stopBall(ballz);
 
                 //玩家发球
-                ws.end(1);  //websocket
-                beginMapPos();  //map
-                readyToBegin();
                 ws.synend(1);  //websocket
+                ws.end(1);  //websocket
                 return;
             }
             else
@@ -463,6 +461,21 @@ var throwBall = function(t)  //抛起球
         {
             ballz = 30;
         }
+    }
+}
+var stopBall = function(y)  //网拦住球
+{
+    ballz = y;
+    if (ballz > 5)
+    {
+        setBall(ballx, bally, ballz);
+        moveCamera(ballx / 3, ballz / 20);
+        setTimeout("stopBall(" + (y-3) + ")", 20);
+    }
+    else
+    {
+        beginMapPos();  //map
+        readyToBegin();
     }
 }
 var beginBall = function()  //发出球
@@ -673,11 +686,11 @@ var checkDie = function(player)
 {
     if (player == 1) //检查玩家一
     {
-        return Math.random() < nowNet1Height / 200.0;
+        return Math.random() < nowNet1Height / 300.0;
     }
     else //检查玩家二
     {
-        return Math.random() < nowNet2Height / 200.0;
+        return Math.random() < nowNet2Height / 300.0;
     }
 }
 
