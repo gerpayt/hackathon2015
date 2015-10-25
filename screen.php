@@ -12,17 +12,17 @@
 	<div id="container" class="container" style="height: 1200px; width: 600px;-webkit-transform-style: preserve-3d;">
 	    <img id="outer" src="image/bg.jpg" />
 	    <div id="shadow" class="ball shadow"></div>
-	    <div id="ball" class="ball"></div>
-	    <div id="pos" class="pos"></div>
-	    <div id="player" class="player"></div>
-	    <img id="net" src="image/net.jpg" />
-	    <img id="net_mb1" src="image/net_mb1.jpg" />
-	    <img id="net_mb2" src="image/net_mb2.jpg" />
 	    <div id="ad" class="ad">
 			<div id="ad1" class="ad1"></div>
 			<div id="ad2" class="ad2"></div>
 			<div id="ad3" class="ad3"></div>
 	    </div>
+	    <div id="pos" class="pos"></div>
+	    <div id="player" class="player"></div>
+	    <img id="net" src="image/net.jpg" />
+	    <img id="net_mb1" src="image/net_mb1.jpg" />
+	    <img id="ball" class="ball" src="image/ball_dg.png"></div>
+	    <img id="net_mb2" src="image/net_mb2.jpg" />
 	    <!-- <div id="viewer" class="viewer">
 			<div id="viewer1" class="viewer1"></div>
 			<div id="viewer2" class="viewer2"></div>
@@ -80,13 +80,44 @@
     </div>
 </div>    
 
-<div id="info">
-	<div class="scores">
+<div id="info" style="display:none">
+	<div id="scoreID" class="scores" style="display:none">
 		<span class="avatar avatar-him"><img src="image/zyt/header/forward.jpg" /></span>
         <span id="score">0:0</span>
 		<span class="avatar avatar-me"><img src="image/cf/header/forward.jpg" /></span>
 	</div>
-</div> 
+
+	<!-- 歌词显示  -->
+	<div id="lyricWrapper" style="display:none">
+        <div id="songPlayer">
+	        <audio controls="" id="audio" src="sound/song.mp3">not supported</audio>
+        </div>
+	    <div id="songPlayer2">
+	        <audio controls="" id="audio2" src="sound/songA.mp3" style="display:none">not supported</audio>
+	    </div>
+	    <div id="songPlayer3">
+	        <audio controls="" id="audio3" src="sound/songB.mp3" style="display:none">not supported</audio>
+	    </div>
+
+        <div id="lyricContainer">
+             歌词显示
+        </div>
+    </div>
+
+    <div id="graphicsWrapperID" class="graphicsWrapper" style="display:none">
+
+		<div id="visualizer_wrapper">
+	        <canvas id='canvas' width="400" height="300"></canvas>
+	    </div>
+	    <div id="timevisualizer_wrapper">
+	        <canvas id='timecanvas1' class="timecanvas" width="300" height="300"></canvas>
+	        <canvas id='timecanvas2' class="timecanvas" width="300" height="300"></canvas>
+	        <canvas id='timecanvas3' class="timecanvas" width="300" height="300"></canvas>
+	    </div>
+	</div>
+</div>
+
+
 
 
 <div class="garden" style="-webkit-transform:scale(0.35); -webkit-transform-origin:0 0; ">
@@ -233,5 +264,4 @@
 	var debug = <?php echo $debug; ?>;
 </script>
 <script type="text/javascript" src="script/screen_start.js?r=<?php echo rand(); ?>"></script>
-<script src='' id="script1"></script>
 </html>

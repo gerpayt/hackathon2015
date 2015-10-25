@@ -154,6 +154,16 @@ ScreenPlayWS.prototype.onSocketMessage = function(msg)
 	{
         maibaGame();
 	}
+	else if (data[1] == 'synend')
+	{
+		// synend,1
+		this.onSocketSynend(data[2]);
+	}
+	else if (data[1] == 'volume')
+	{
+        _('net').style.height = 100*data[2] + 'px';
+        _('net').style.top = 604-100*data[2] + 'px';
+	}
 }
 //收到user信号
 ScreenPlayWS.prototype.onSocketUser = function(userArr)
@@ -307,6 +317,12 @@ ScreenPlayWS.prototype.onSocketCode = function(mycode)
 //		finishMovie();  //play
 //	}
 }
+//收到synend信号
+ScreenPlayWS.prototype.onSocketSynend = function(player)
+{
+	synEndGame();  //play
+}
+
 //发送方向给手柄
 ScreenPlayWS.prototype.sendTarget = function(orient)
 {
@@ -320,12 +336,19 @@ ScreenPlayWS.prototype.end = function(id)
 	this.send('end,' + id);
 	this.logMsg('end,' + id);
 }
+//本轮结束
+ScreenPlayWS.prototype.synend = function(id)
+{
+	this.send('synend,' + id);
+	this.logMsg('synend,' + id);
+}
 //告诉另外屏幕击打信息
 ScreenPlayWS.prototype.newhit = function(x, y, h, px, py)
 {
 	this.send('newhit,' + x + ',' + y + ',' + h + ',' + px + ',' + py);
 	this.logMsg('newhit,' + x + ',' + y + ',' + h + ',' + px + ',' + py);
 }
+
 
 
 

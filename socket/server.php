@@ -21,6 +21,8 @@
                     $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
                 } elseif (substr($msg, 0, 5) == 'maiba') {
                     $this->sendToAllUser(substr('' . $user->socket, 13) . ',' . $msg);
+                } elseif (substr($msg, 0, 6) == 'volume') {
+                    $this->sendToAllScreen(substr('' . $user->socket, 13) . ',' . $msg);
                 } elseif (substr($msg, 0, 6) == 'screen') {
 					$user->role = 'screen';
 					$user->rid = substr($msg, 7);
@@ -53,6 +55,11 @@
 				{
 					//end,1
 					$this->sendToPat(substr('' . $user->socket, 13) . ',' . $msg, $user);
+				}
+				else if (($user->role == 'screen') && (substr($msg, 0, 6) == 'synend'))
+				{
+					//synend,1
+					$this->sendToAntScreen(substr('' . $user->socket, 13) . ',' . $msg, $user);
 				}
 				else if (($user->role == 'handle') && (substr($msg, 0, 5) == 'throw'))
 				{
