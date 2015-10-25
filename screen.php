@@ -12,17 +12,17 @@
 	<div id="container" class="container" style="height: 1200px; width: 600px;-webkit-transform-style: preserve-3d;">
 	    <img id="outer" src="image/bg.jpg" />
 	    <div id="shadow" class="ball shadow"></div>
-	    <div id="ball" class="ball"></div>
+	    <img id="ball" class="ball" src="image/ball_dg.png"></div>
 	    <div id="pos" class="pos"></div>
 	    <div id="player" class="player"></div>
-	    <img id="net" src="image/net.jpg" />
-	    <img id="net_mb1" src="image/net_mb1.jpg" />
-	    <img id="net_mb2" src="image/net_mb2.jpg" />
 	    <div id="ad" class="ad">
 			<div id="ad1" class="ad1"></div>
 			<div id="ad2" class="ad2"></div>
 			<div id="ad3" class="ad3"></div>
 	    </div>
+	    <img id="net" src="image/net.jpg" />
+	    <img id="net_mb1" src="image/net_mb1.jpg" />
+	    <img id="net_mb2" src="image/net_mb2.jpg" />
 	    <!-- <div id="viewer" class="viewer">
 			<div id="viewer1" class="viewer1"></div>
 			<div id="viewer2" class="viewer2"></div>
